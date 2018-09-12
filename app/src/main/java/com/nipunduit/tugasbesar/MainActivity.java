@@ -9,7 +9,7 @@ import android.widget.EditText;
 
 
 public class MainActivity extends AppCompatActivity {
-
+//test lupuz;
     private Button mLogin;
     private Button mRegister;
     private EditText mUsername;
