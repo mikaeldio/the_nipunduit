@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/Pengeluaran"
+        android:layout_width="204dp"
+        android:layout_height="39dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="46dp"
+        android:text="Pengeluaran Bulan Ini"
+        android:textSize="20sp" />
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/Pengeluaran"
+        android:layout_marginTop="131dp">
+
+        <TableRow>
+
+            <TextView
+                android:layout_width="117dp"
+                android:padding="16dp"
+                android:text="Hari/Tanggal"
+                android:textAlignment="center" />
+
+            <TextView
+                android:layout_width="134dp"
+                android:layout_height="match_parent"
+                android:padding="16dp"
+                android:text="Pengeluaran"
+                android:textAlignment="center" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/mTanggal"
+                android:layout_width="117dp"
+                android:layout_height="match_parent"
+                android:padding="16dp"
+                android:text="========"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/mPengeluaran"
+                android:layout_width="134dp"
+                android:layout_height="260dp"
+                android:padding="16dp"
+                android:text="========="
+                android:textAlignment="center" />
+        </TableRow>
+    </TableLayout>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/Pengeluaran"
+        android:layout_marginBottom="46dp"
+        android:text="Total Pengeluaran :" />
+
+    <TextView
+        android:id="@+id/mTotalPengeluaran"
+        android:layout_width="103dp"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/Pengeluaran"
+        android:layout_alignTop="@+id/textView3"
+        android:layout_marginEnd="-45dp" />
+
+</RelativeLayout>

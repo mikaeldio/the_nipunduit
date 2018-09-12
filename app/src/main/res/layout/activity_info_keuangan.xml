@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".InfoKeuangan">
+
+    <Button
+        android:id="@+id/mBatal"
+        android:layout_width="89dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@+id/mDone"
+        android:layout_marginStart="77dp"
+        android:text="BATAL" />
+
+    <EditText
+        android:id="@+id/mbudget2"
+        android:layout_width="237dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/textJudul"
+        android:layout_marginTop="163dp"
+        android:ems="10"
+        android:hint="Masukkan jumlah anda"
+        android:inputType="numberDecimal" />
+
+    <TextView
+        android:id="@+id/textJudul"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="76dp"
+        android:text="Informasi Keuangan"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/textBudget"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/textJudul"
+        android:layout_marginTop="132dp"
+        android:text="Jumlah Pendapatan/Budget" />
+
+    <TextView
+        android:id="@+id/textFrekuensi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/textJudul"
+        android:layout_marginTop="221dp"
+        android:text="Frekuensi Menabung" />
+
+    <TextView
+        android:id="@+id/textTarget"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/textJudul"
+        android:layout_marginBottom="213dp"
+        android:text="Target uang yang ditabung" />
+
+    <EditText
+        android:id="@+id/mTarget"
+        android:layout_width="237dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/textJudul"
+        android:layout_marginBottom="145dp"
+        android:ems="10"
+        android:hint="Masukkan jumlah anda"
+        android:inputType="numberDecimal" />
+
+    <Spinner
+        android:id="@+id/spinnerFrekuensi"
+        android:layout_width="95dp"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/textJudul"
+        android:layout_centerVertical="true"
+        android:entries="@array/spinnerFrekuensi" />
+
+    <Button
+        android:id="@+id/mDone"
+        android:layout_width="93dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="73dp"
+        android:layout_toEndOf="@+id/textFrekuensi"
+        android:text="DONE" />
+</RelativeLayout>
