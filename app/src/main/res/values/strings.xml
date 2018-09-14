@@ -13,4 +13,10 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
+
+    <string-array name="frekuensi_menabung">
+        <item>1 Hari</item>
+        <item>3 Hari</item>
+        <item>7 Hari</item>
+    </string-array>
 </resources>

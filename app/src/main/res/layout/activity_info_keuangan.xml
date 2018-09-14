@@ -16,7 +16,7 @@
         android:text="BATAL" />
 
     <EditText
-        android:id="@+id/mbudget2"
+        android:id="@+id/mPendapatan"
         android:layout_width="237dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -80,7 +80,7 @@
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/textJudul"
         android:layout_centerVertical="true"
-        android:entries="@array/spinnerFrekuensi" />
+        android:entries="@array/frekuensi_menabung" />
 
     <Button
         android:id="@+id/mDone"
