@@ -13,9 +13,26 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 //tesjose
 
 public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+
+    private TextView mNama;
+    private TextView mTotalBudget;
+    private TextView mSisaBudget;
+    private TextView mTargetTabungan;
+    private TextView mBudgetSekarang;
+    private TextView mSisaBudget;
+
+    private Button mTambahPengeluaran;
+    private Button mTampilPengeluaran;
+    private Button mAturMakan;
+    private Button mKeluar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +41,42 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        mTambahPengeluaran=(Button)findViewById(R.id.mTambah);
+        mTampilPengeluaran=(Button)findViewById(R.id.mTampil);
+        mAturMakan=(Button)findViewById(R.id.mJamMakan);
+        mKeluar=(Button)findViewById(R.id.mKeluar);
+
+        mTampilPengeluaran.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(HomeActivity.this,Pengeluaran_Harian.class);
+                startActivity(i);
+            }
+        });
+
+        mTambahPengeluaran.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(HomeActivity.this,HomeActivity.this);
+                startActivity(i);
+            }
+        });
+
+        mAturMakan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(HomeActivity.this,HomeActivity.this);
+                startActivity(i);
+            }
+        });
+
+        mKeluar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(HomeActivity.this,MainActivity.class);
+                startActivity(i);
+            }
+        });
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
