@@ -27,10 +27,8 @@
         android:id="@+id/text_budgetBulan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="246dp"
+        android:layout_centerVertical="true"
+        android:layout_toStartOf="@+id/mNama"
         android:text="Budget Bulan Ini" />
 
     <Button
@@ -52,6 +50,8 @@
         android:text="Atur Jam Makan" />
 
     <Button
+<<<<<<< HEAD
+=======
         android:id="@+id/mOut"
         android:layout_width="108dp"
         android:layout_height="wrap_content"
@@ -60,21 +60,21 @@
         android:text="Keluar" />
 
     <Button
+>>>>>>> ecd6e78c5e1fde7fa60492b8eea99b9d227d3aa8
         android:id="@+id/mTampil"
         android:layout_width="108dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignStart="@+id/text_budgetBulan"
         android:layout_marginBottom="20dp"
-        android:text="Tampil Pengeluaran" />
+        android:text="Tampil Pengeluaran Hari Ini" />
 
     <TextView
         android:id="@+id/text_sisaBudget"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_above="@+id/text_target"
         android:layout_alignStart="@+id/text_budgetBulan"
-        android:layout_marginBottom="249dp"
         android:text="Sisa Budget Bulan Ini" />
 
     <TextView
@@ -83,7 +83,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignStart="@+id/text_budgetBulan"
-        android:layout_marginBottom="220dp"
+        android:layout_marginBottom="212dp"
         android:text="Target Tabungan" />
 
     <TextView
@@ -144,5 +144,14 @@
         android:layout_alignTop="@+id/text_sisaBudgetH"
         android:layout_toStartOf="@+id/mBB"
         android:text="-" />
+
+    <Button
+        android:id="@+id/mKeluar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/mTambah"
+        android:layout_marginTop="-89dp"
+        android:layout_toEndOf="@+id/mNama"
+        android:text="Keluar" />
 
 </RelativeLayout>
