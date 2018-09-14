@@ -50,8 +50,6 @@
         android:text="Atur Jam Makan" />
 
     <Button
-<<<<<<< HEAD
-=======
         android:id="@+id/mOut"
         android:layout_width="108dp"
         android:layout_height="wrap_content"
@@ -60,7 +58,6 @@
         android:text="Keluar" />
 
     <Button
->>>>>>> ecd6e78c5e1fde7fa60492b8eea99b9d227d3aa8
         android:id="@+id/mTampil"
         android:layout_width="108dp"
         android:layout_height="wrap_content"

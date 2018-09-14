@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegisterActivity">
+    tools:context=".EditProfileActivity">
 
     <Button
         android:id="@+id/mBatal"
@@ -132,5 +132,4 @@
         android:layout_alignEnd="@+id/mConfPassword"
         android:layout_alignParentBottom="true"
         android:text="DAFTAR" />
-
 </RelativeLayout>
