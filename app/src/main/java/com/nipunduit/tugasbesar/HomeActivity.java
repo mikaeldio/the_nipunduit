@@ -1,5 +1,6 @@
 package com.nipunduit.tugasbesar;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -81,11 +82,13 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         int id = item.getItemId();
 
         if (id == R.id.nav_home) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.framelay,new FirstFragment());
+            Intent i = new Intent(getApplicationContext(),HomeActivity.class);
+            startActivity(i);
         } else if (id == R.id.nav_keuperbulan) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.framelay,new KeuPerBulanFragment());
+            Intent i = new Intent(getApplicationContext(),MainActivity.class);
+            startActivity(i);
         } else if (id == R.id.nav_tambahpengeluaran) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.framelay,new TambahPengeluaranFragment());
+
         } else if (id == R.id.nav_manage) {
 
         } else if (id == R.id.nav_share) {
