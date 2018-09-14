@@ -126,7 +126,7 @@
         android:inputType="textPassword" />
 
     <Button
-        android:id="@+id/mDaftar"
+        android:id="@+id/mDone"
         android:layout_width="89dp"
         android:layout_height="wrap_content"
         android:layout_alignEnd="@+id/mConfPassword"

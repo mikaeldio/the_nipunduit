@@ -70,13 +70,13 @@
         android:text="Belum punya akun?"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/mDaftar"
+        app:layout_constraintEnd_toStartOf="@+id/mDone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mLogin"
         app:layout_constraintVertical_bias="0.915" />
 
     <Button
-        android:id="@+id/mDaftar"
+        android:id="@+id/mDone"
         android:layout_width="95dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
