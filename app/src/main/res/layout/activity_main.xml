@@ -44,13 +44,13 @@
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword"
-        app:layout_constraintBottom_toTopOf="@+id/mLogin"
+        app:layout_constraintBottom_toTopOf="@+id/mLogin_login"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/mLogin"
+        android:id="@+id/mLogin_login"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="172dp"
@@ -72,7 +72,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/mDone"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mLogin"
+        app:layout_constraintTop_toBottomOf="@+id/mLogin_login"
         app:layout_constraintVertical_bias="0.915" />
 
     <Button
@@ -85,6 +85,6 @@
         android:text="DAFTAR"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mLogin"
+        app:layout_constraintTop_toBottomOf="@+id/mLogin_login"
         app:layout_constraintVertical_bias="0.925" />
 </android.support.constraint.ConstraintLayout>

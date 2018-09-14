@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
         mUsername=(EditText)findViewById(R.id.mUsername);
         mPassword=(EditText)findViewById(R.id.mPassword);
-        mLogin=(Button) findViewById(R.id.mLogin);
+        mLogin=(Button) findViewById(R.id.mLogin_login);
         mRegister=(Button) findViewById(R.id.mDone);
 
         mLogin.setOnClickListener(new View.OnClickListener() {

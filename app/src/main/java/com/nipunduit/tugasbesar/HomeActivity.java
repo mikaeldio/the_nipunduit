@@ -27,6 +27,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     private TextView mSisaBudget;
     private TextView mTargetTabungan;
     private TextView mBudgetSekarang;
+    private TextView mSisaBudgetSekarang;
 
     private Button mTambahPengeluaran;
     private Button mTampilPengeluaran;
@@ -64,7 +65,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         mAturMakan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(HomeActivity.this,HomeActivity.class);
+                Intent i=new Intent(HomeActivity.this,TambahPengeluaran.class);
                 startActivity(i);
             }
         });
@@ -76,6 +77,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(i);
             }
         });
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
