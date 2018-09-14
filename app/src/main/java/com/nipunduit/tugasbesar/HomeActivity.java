@@ -12,7 +12,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.app.Fragment;
 //tesjose
 
 public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -82,7 +81,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         int id = item.getItemId();
 
         if (id == R.id.nav_home) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.framelay,new HomeFragment());
+            getSupportFragmentManager().beginTransaction().replace(R.id.framelay,new FirstFragment());
         } else if (id == R.id.nav_keuperbulan) {
             getSupportFragmentManager().beginTransaction().replace(R.id.framelay,new KeuPerBulanFragment());
         } else if (id == R.id.nav_tambahpengeluaran) {
