@@ -23,7 +23,8 @@
             android:label="@string/title_activity_home"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Pengeluaran_Harian" />
-        <activity android:name=".KeuPerbulanActivity"></activity>
+        <activity android:name=".KeuPerbulanActivity" />
+        <activity android:name=".TambahPengeluaran"></activity>
     </application>
 
 </manifest>
