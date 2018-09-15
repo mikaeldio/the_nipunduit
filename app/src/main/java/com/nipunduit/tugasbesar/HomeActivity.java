@@ -1,5 +1,6 @@
 package com.nipunduit.tugasbesar;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -12,10 +13,31 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+<<<<<<< HEAD
 import android.app.Fragment;
 
+=======
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
+//tesjose
+>>>>>>> 478153976d9d3831ecaa3a42ecf035cc2bd4d9c6
 
 public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+
+    private TextView mNama;
+    private TextView mTotalBudget;
+    private TextView mSisaBudget;
+    private TextView mTargetTabungan;
+    private TextView mBudgetSekarang;
+    private TextView mSisaBudgetSekarang;
+
+    private Button mTambahPengeluaran;
+    private Button mTampilPengeluaran;
+    private Button mAturMakan;
+    private Button mKeluar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +45,43 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_home);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        mTambahPengeluaran=(Button)findViewById(R.id.mTambah);
+        mTampilPengeluaran=(Button)findViewById(R.id.mTampil);
+        mAturMakan=(Button)findViewById(R.id.mJamMakan);
+        mKeluar=(Button)findViewById(R.id.mKeluar);
+
+        mTampilPengeluaran.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(HomeActivity.this,Pengeluaran_Harian.class);
+                startActivity(i);
+            }
+        });
+
+        mTambahPengeluaran.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(HomeActivity.this,TambahPengeluaran.class);
+                startActivity(i);
+            }
+        });
+
+        mAturMakan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(HomeActivity.this,TambahPengeluaran.class);
+                startActivity(i);
+            }
+        });
+
+        mKeluar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(HomeActivity.this,MainActivity.class);
+                startActivity(i);
+            }
+        });
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -68,9 +127,9 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+       /* if (id == R.id.action_settings) {
             return true;
-        }
+        }*/
 
         return super.onOptionsItemSelected(item);
     }
@@ -82,18 +141,20 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         int id = item.getItemId();
 
         if (id == R.id.nav_home) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.framelay,new HomeFragment());
+            Intent i = new Intent(getApplicationContext(),HomeActivity.class);
+            startActivity(i);
         } else if (id == R.id.nav_keuperbulan) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.framelay,new KeuPerBulanFragment());
+            Intent i = new Intent(getApplicationContext(),MainActivity.class);
+            startActivity(i);
         } else if (id == R.id.nav_tambahpengeluaran) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.framelay,new TambahPengeluaranFragment());
-        } else if (id == R.id.nav_manage) {
 
-        } else if (id == R.id.nav_share) {
+        }// else if (id == R.id.nav_manage) {
 
-        } else if (id == R.id.nav_send) {
+        //} else if (id == R.id.nav_share) {
 
-        }
+       // } else if (id == R.id.nav_send) {
+
+        //}
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

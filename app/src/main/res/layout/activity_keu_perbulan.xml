@@ -15,9 +15,9 @@
     <TableLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/Pengeluaran"
-        android:layout_marginTop="131dp">
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="100dp">
 
         <TableRow>
 
@@ -60,16 +60,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/Pengeluaran"
-        android:layout_marginBottom="46dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="50dp"
+        android:layout_marginStart="76dp"
         android:text="Total Pengeluaran :" />
 
     <TextView
         android:id="@+id/mTotalPengeluaran"
         android:layout_width="103dp"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/Pengeluaran"
+        android:layout_alignParentEnd="true"
         android:layout_alignTop="@+id/textView3"
-        android:layout_marginEnd="-45dp" />
+        android:layout_marginEnd="56dp" />
 
 </RelativeLayout>

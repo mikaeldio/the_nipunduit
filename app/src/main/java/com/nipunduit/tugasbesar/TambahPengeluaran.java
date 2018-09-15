@@ -6,39 +6,38 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
-public class InfoKeuangan extends AppCompatActivity {
+public class TambahPengeluaran extends AppCompatActivity {
 
-    private EditText mPendapatan;
-    private EditText mTargetTabungan;
+    private TextView mKeterangan;
+    private TextView mJumlah;
     private Button mBatal;
-    private Button mDone;
+    private Button mTambah;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_info_keuangan);
+        setContentView(R.layout.activity_tambah_pengeluaran);
 
-        mPendapatan=(EditText)findViewById(R.id.mPendapatan);
-        mTargetTabungan=(EditText)findViewById(R.id.mTarget);
+        mKeterangan=(EditText)findViewById(R.id.mKeterangan);
+        mJumlah=(EditText)findViewById(R.id.mJumlah);
         mBatal=(Button) findViewById(R.id.mBatal);
-        mDone=(Button) findViewById(R.id.mDone);
+        mTambah=(Button) findViewById(R.id.mTambah);
 
         mBatal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent (InfoKeuangan.this,HomeActivity.class);
+                Intent i = new Intent (TambahPengeluaran.this,HomeActivity.class);
                 startActivity(i);
             }
         });
-        mDone.setOnClickListener(new View.OnClickListener() {
+        mTambah.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent (InfoKeuangan.this,HomeActivity.class);
+                Intent i = new Intent (TambahPengeluaran.this,HomeActivity.class);
                 startActivity(i);
             }
         });
     }
-
-
 }

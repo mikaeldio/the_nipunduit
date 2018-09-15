@@ -29,13 +29,22 @@ public class RegisterActivity extends AppCompatActivity {
         mConfPassword=(EditText) findViewById(R.id.mConfPassword);
         mTelp=(EditText) findViewById(R.id.mTelp);
         mBatal=(Button)findViewById(R.id.mBatal);
-        mDaftar=(Button)findViewById(R.id.mDaftar);
+        mDaftar=(Button)findViewById(R.id.mDone);
 
         mBatal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i=new Intent(RegisterActivity.this, MainActivity.class);
+                startActivity(i);
+            }
+        });
+        mDaftar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(RegisterActivity.this, HomeActivity.class);
+                startActivity(i);
             }
         });
     }
+
 }
