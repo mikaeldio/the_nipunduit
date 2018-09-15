@@ -49,7 +49,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         mTampilPengeluaran.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(HomeActivity.this,Pengeluaran_Harian.class);
+                Intent i=new Intent(HomeActivity.this,ShowPengeluaranHariActivity.class);
                 startActivity(i);
             }
         });
@@ -142,10 +142,12 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             Intent i = new Intent(getApplicationContext(),MainActivity.class);
             startActivity(i);
         } else if (id == R.id.nav_tambahpengeluaran) {
-
-        }// else if (id == R.id.nav_manage) {
-
-        //} else if (id == R.id.nav_share) {
+            Intent i = new Intent(getApplicationContext(),TambahPengeluaran.class);
+            startActivity(i);
+        }else if (id == R.id.nav_editProfile) {
+            Intent i = new Intent(getApplicationContext(),EditProfileActivity.class);
+            startActivity(i);
+        } //else if (id == R.id.nav_share) {
 
        // } else if (id == R.id.nav_send) {
 

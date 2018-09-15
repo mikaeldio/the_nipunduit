@@ -10,10 +10,11 @@ import android.widget.TextView;
 
 public class TambahPengeluaran extends AppCompatActivity {
 
-    private TextView mKeterangan;
-    private TextView mJumlah;
+    private EditText mKeterangan;
+    private EditText mJumlah;
     private Button mBatal;
     private Button mTambah;
+    PengeluaranDAO pengeluaranDAO = new PengeluaranDAO();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +36,9 @@ public class TambahPengeluaran extends AppCompatActivity {
         mTambah.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent (TambahPengeluaran.this,HomeActivity.class);
+                pengeluaranDAO = new PengeluaranDAO(mKeterangan.getText().toString(),mJumlah.getText().toString());
+                pengeluaranDAO.save();
+                Intent i = new Intent (TambahPengeluaran.this,ShowPengeluaranHariActivity.class);
                 startActivity(i);
             }
         });
