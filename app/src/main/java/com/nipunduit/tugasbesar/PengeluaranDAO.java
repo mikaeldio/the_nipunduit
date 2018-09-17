@@ -5,16 +5,17 @@ import com.orm.SugarRecord;
 public class PengeluaranDAO extends SugarRecord {
 
     String Keterangan;
-    String Jumlah;
+    Integer Jumlah;
     public PengeluaranDAO(){}
 
     public PengeluaranDAO(String Keterangan,
-                          String Jumlah){
+                          Integer Jumlah){
         this.Keterangan=Keterangan;
         this.Jumlah=Jumlah;
     }
 
-    public String getJumlah() {
+    public Integer getJumlah() {
         return Jumlah;
     }
+
 }

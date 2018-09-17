@@ -24,7 +24,7 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
 
         mName=(EditText)findViewById(R.id.mUsername);
-        mPassword=(EditText)findViewById(R.id.mPassword);
+        mPassword=(EditText)findViewById(R.id.mOldPassword);
         mEmail=(EditText) findViewById(R.id.mEmail);
         mConfPassword=(EditText) findViewById(R.id.mConfPassword);
         mTelp=(EditText) findViewById(R.id.mTelp);
@@ -41,7 +41,7 @@ public class RegisterActivity extends AppCompatActivity {
         mDaftar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(RegisterActivity.this, HomeActivity.class);
+                Intent i=new Intent(RegisterActivity.this, InfoKeuangan.class);
                 startActivity(i);
             }
         });

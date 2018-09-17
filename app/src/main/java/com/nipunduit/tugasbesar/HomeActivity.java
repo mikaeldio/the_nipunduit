@@ -13,18 +13,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-<<<<<<< HEAD
+
 import android.app.Fragment;
 
-=======
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
 //tesjose
->>>>>>> 478153976d9d3831ecaa3a42ecf035cc2bd4d9c6
-
 public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private TextView mNama;
@@ -152,9 +149,10 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         }else if (id == R.id.nav_editProfile) {
             Intent i = new Intent(getApplicationContext(),EditProfileActivity.class);
             startActivity(i);
-        } //else if (id == R.id.nav_share) {
-
-       // } else if (id == R.id.nav_send) {
+        }else if (id == R.id.nav_infokeuangan) {
+            Intent i = new Intent(getApplicationContext(),InfoKeuangan.class);
+            startActivity(i);
+       } //else if (id == R.id.nav_send) {
 
         //}
 

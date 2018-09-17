@@ -6,20 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".EditProfileActivity">
 
-    <TextView
-        android:id="@+id/textConfPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/mTelp"
-        android:layout_marginBottom="125dp"
-        android:text="Confirm Password" />
-
     <EditText
         android:id="@+id/mConfPassword"
         android:layout_width="226dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textConfPassword"
+        android:layout_below="@+id/textNewPassword"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="-125dp"
         android:ems="10"
@@ -27,20 +18,11 @@
         android:inputType="textPassword" />
 
     <TextView
-        android:id="@+id/textPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/textConfPassword"
-        android:layout_marginBottom="207dp"
-        android:text="Password" />
-
-    <TextView
         android:id="@+id/textTelp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/mTelp"
-        android:layout_alignStart="@+id/textConfPassword"
+        android:layout_alignStart="@+id/mConfPassword"
         android:text="No. Telp" />
 
     <EditText
@@ -73,15 +55,6 @@
         android:hint="Email"
         android:inputType="textPersonName" />
 
-    <TextView
-        android:id="@+id/textName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/mName"
-        android:layout_alignStart="@+id/textConfPassword"
-        android:layout_marginBottom="-101dp"
-        android:text="Name" />
-
     <EditText
         android:id="@+id/mName"
         android:layout_width="227dp"
@@ -93,23 +66,31 @@
         android:hint="Name"
         android:inputType="textPersonName" />
 
-    <EditText
-        android:id="@+id/mPassword"
-        android:layout_width="226dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textPassword"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="-207dp"
-        android:ems="10"
-        android:hint="Password"
-        android:inputType="textPassword" />
-
     <Button
         android:id="@+id/mDone"
         android:layout_width="89dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="18dp"
-        android:text="DAFTAR" />
+        android:layout_marginBottom="150dp"
+        android:text="DONE" />
+
+    <TextView
+        android:id="@+id/textName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/mName"
+        android:layout_alignStart="@+id/mConfPassword"
+        android:layout_marginBottom="-101dp"
+        android:text="Name" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:text="Edite Profile"
+        android:textSize="24sp" />
 </RelativeLayout>

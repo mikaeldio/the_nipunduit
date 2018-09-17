@@ -11,11 +11,11 @@
         android:layout_width="89dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/textConfPassword"
+        android:layout_alignStart="@+id/textNewPassword"
         android:text="BATAL" />
 
     <TextView
-        android:id="@+id/textConfPassword"
+        android:id="@+id/textNewPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -27,7 +27,7 @@
         android:id="@+id/mConfPassword"
         android:layout_width="226dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textConfPassword"
+        android:layout_below="@+id/textNewPassword"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="-105dp"
         android:ems="10"
@@ -35,7 +35,7 @@
         android:inputType="textPassword" />
 
     <TextView
-        android:id="@+id/textPassword"
+        android:id="@+id/textOldPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -115,7 +115,7 @@
         android:inputType="textPersonName" />
 
     <EditText
-        android:id="@+id/mPassword"
+        android:id="@+id/mOldPassword"
         android:layout_width="226dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

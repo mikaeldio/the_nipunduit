@@ -36,7 +36,9 @@ public class TambahPengeluaran extends AppCompatActivity {
         mTambah.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                pengeluaranDAO = new PengeluaranDAO(mKeterangan.getText().toString(),mJumlah.getText().toString());
+                String value= mJumlah.getText().toString();
+                int finalValue=Integer.parseInt(value);
+                pengeluaranDAO = new PengeluaranDAO(mKeterangan.getText().toString(),finalValue);
                 pengeluaranDAO.save();
                 Intent i = new Intent (TambahPengeluaran.this,ShowPengeluaranHariActivity.class);
                 startActivity(i);

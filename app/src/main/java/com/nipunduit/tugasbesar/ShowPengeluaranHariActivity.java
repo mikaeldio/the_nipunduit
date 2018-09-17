@@ -15,6 +15,7 @@ public class ShowPengeluaranHariActivity extends AppCompatActivity {
     private RecycleAdapter recycleAdapter;
     private RecyclerView.LayoutManager layoutManager;
     private TextView mTotal;
+    private Integer totalPrice = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -28,12 +29,14 @@ public class ShowPengeluaranHariActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         setRecycleView();
         recyclerView.setAdapter(recycleAdapter);
-        float totalPrice = 0;
-        for (int i = 0; i<mListPengeluaranHarian.size(); i++)
+
+        for(int i=0; i<mListPengeluaranHarian.size(); i++)
         {
-            totalPrice += Float.parseFloat(mListPengeluaranHarian.get(i).getJumlah());
+            totalPrice +=  mListPengeluaranHarian.get(i).getJumlah();
         }
-        mTotal.setText((int) totalPrice);
+        String t = totalPrice.toString();
+        mTotal.setText(t);
+
     }
 
     private void setRecycleView(){
