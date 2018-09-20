@@ -27,8 +27,6 @@ public class InfoKeuangan extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info_keuangan);
-        loadPreferences();
-        setForm();
 
         mPendapatan= (EditText)findViewById(R.id.mPendapatan);
         mTargetTabungan=(EditText)findViewById(R.id.mTarget);
@@ -53,36 +51,4 @@ public class InfoKeuangan extends AppCompatActivity {
             }
         });
     }
-
-    private void loadPreferences() {
-        sp = getSharedPreferences(name,mode);
-        if(sp!=null)
-        {
-            Pendapatan=sp.getString("pendapatan","");
-            TargetTabungan=sp.getString("tabungan","");
-        }
-    }
-
-    private void setForm()
-    {
-        mPendapatan = (EditText) findViewById(R.id.mPendapatan);
-        mTargetTabungan = (EditText) findViewById(R.id.mTarget);
-
-    }
-
-    public void buttonSimpan(View V)
-    {
-        savePreferences();
-    }
-
-    private void savePreferences()
-    {
-        mPendapatan=(EditText) findViewById(R.id.mPendapatan);
-        mTargetTabungan=(EditText) findViewById(R.id.mTarget);
-        SharedPreferences.Editor editor = sp.edit();
-        editor.putString("pendapatan",mPendapatan.getText().toString());
-        editor.putString("tabungan",mTargetTabungan.getText().toString());
-        editor.apply();
-    }
-
 }

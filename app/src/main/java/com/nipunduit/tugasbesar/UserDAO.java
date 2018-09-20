@@ -44,4 +44,12 @@ public class UserDAO {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public class val{
+        UserDAO result;
+
+        public UserDAO getResult(){
+            return result;
+        }
+    }
 }
