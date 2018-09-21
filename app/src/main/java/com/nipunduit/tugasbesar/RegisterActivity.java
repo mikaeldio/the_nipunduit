@@ -10,6 +10,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -33,13 +36,21 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
+        final EditText email = (EditText)findViewById(R.id.mEmail);
+        EditText password = (EditText)findViewById(R.id.mPassword);
+        final Button mDaftar =(Button)findViewById(R.id.mDone);
+
         setAtribut();
         mDaftar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                UserDAO userDAO = new UserDAO(mName.getText().toString(), mEmail.getText().toString(),
-                 mTelp.getText().toString(), mPassword.getText().toString());
-                onClickRegister();
+                if(!validateEmail(email.getText().toString())){
+                    email.setError("Invalid Email!");
+                }else {
+                    UserDAO userDAO = new UserDAO(mName.getText().toString(), mEmail.getText().toString(),
+                            mTelp.getText().toString(), mPassword.getText().toString());
+                    onClickRegister();
+                }
             }
         });
         mBatal.setOnClickListener(new View.OnClickListener() {
@@ -49,6 +60,22 @@ public class RegisterActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    //Untuk validation email
+    private boolean validateEmail(String email) {
+        String emailPattern="[a-zA-Z0-9\\+\\.\\_\\%\\-\\+]{1,256}" +
+                "\\@" +
+                "[a-zA-Z0-9][a-zA-Z0-9-]{0,64}" +
+                "(" +
+                "\\." +
+                "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25}" +
+                ")+";
+
+        Pattern pattern =Pattern.compile(emailPattern);
+        Matcher matcher=pattern.matcher(email);
+
+        return matcher.matches();
     }
 
     private void setAtribut() {
