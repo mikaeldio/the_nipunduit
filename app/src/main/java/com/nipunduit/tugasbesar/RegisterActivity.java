@@ -62,7 +62,8 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     public void startIntent(){
-        Intent  intent =  new Intent(getApplicationContext(), HomeActivity.class);
+        Intent  intent =  new Intent(getApplicationContext(), MainActivity.class);
+        Toast.makeText(RegisterActivity.this, "Silahkan login menggunakan akun anda", Toast.LENGTH_SHORT).show();
         startActivity(intent);
     }
 

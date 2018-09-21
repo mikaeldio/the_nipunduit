@@ -81,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "Login  berhasil", Toast.LENGTH_SHORT).show();
                     startIntent();
                 }
+
                 @Override
                 public void onFailure(Call<UserDAO> call, Throwable t) {
                     Toast.makeText(MainActivity.this, "Terjadi kesalahan saat login", Toast.LENGTH_SHORT).show();

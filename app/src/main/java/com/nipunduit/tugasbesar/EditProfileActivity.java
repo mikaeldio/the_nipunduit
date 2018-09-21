@@ -5,9 +5,15 @@ import android.os.Bundle;
 
 public class EditProfileActivity extends AppCompatActivity {
 
+    private String nEmail;
+
+    private Bundle nBundle;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_profile);
+
+        nBundle=getIntent().getBundleExtra("login");
+        nEmail= nBundle.getString("email");
     }
 }

@@ -19,11 +19,17 @@ public class ShowPengeluaranHariActivity extends AppCompatActivity {
     private RecyclerView.LayoutManager layoutManager;
     private TextView mTotal,mDate;
     private Integer totalPrice = 0;
+    private String nEmail;
+
+    private Bundle nBundle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_pengeluaran_hari);
+
+        nBundle=getIntent().getBundleExtra("login");
+        nEmail= nBundle.getString("email");
 
         //===> Date taker
         Date c = Calendar.getInstance().getTime();

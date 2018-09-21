@@ -31,12 +31,18 @@ public class AturJamMakan extends AppCompatActivity {
     private String Time="";
     private String Time2="";
     private String Time3="";
+    private String nEmail;
+
+    private Bundle nBundle;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_aturjammakan);
+
+        nBundle=getIntent().getBundleExtra("login");
+        nEmail= nBundle.getString("email");
 
         // membuat komponen Inten
         Intent intent = new Intent(getApplicationContext(), TambahPengeluaran.class);

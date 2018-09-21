@@ -23,10 +23,17 @@ public class InfoKeuangan extends AppCompatActivity {
     private Button mBatal;
     private Button mDone;
 
+    private String nEmail;
+
+    private Bundle nBundle;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info_keuangan);
+
+        nBundle=getIntent().getBundleExtra("login");
+        nEmail= nBundle.getString("email");
 
         mPendapatan= (EditText)findViewById(R.id.mPendapatan);
         mTargetTabungan=(EditText)findViewById(R.id.mTarget);

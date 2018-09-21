@@ -44,11 +44,11 @@ public class HomeActivity extends AppCompatActivity {
     private Button mTampilPengeluaran;
     private Button mAturMakan;
     private Button mKeluar;
+
     private String nEmail;
     private JSONObject jObject;
 
-
-    public Bundle nBundle;
+    private Bundle nBundle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,30 +61,35 @@ public class HomeActivity extends AppCompatActivity {
         mKeluar = (Button) findViewById(R.id.mKeluar);
         mNama = (TextView) findViewById(R.id.mNama);
 
-       // nBundle=getIntent().getBundleExtra("login");
-        //nEmail=nBundle.getString("email");
+        nBundle=getIntent().getBundleExtra("login");
+        nEmail= nBundle.getString("email");
+        Toast.makeText(HomeActivity.this, nEmail, Toast.LENGTH_SHORT).show();
 
-        /*Retrofit.Builder builder = new Retrofit.Builder()
+        Retrofit.Builder builder = new Retrofit.Builder()
                 .baseUrl("https://nipunduit.000webhostapp.com/api/")
                 .addConverterFactory(GsonConverterFactory.create());
         Retrofit retrofit=builder.build();
         ApiClient apiClient=retrofit.create(ApiClient.class);
-        Call<String> userDAOCall=apiClient.getProfil(nEmail);
-        userDAOCall.enqueue(new Callback<String>() {
+        Call<UserDAO> userDAOCall=apiClient.getProfil(nEmail);
+        userDAOCall.enqueue(new Callback<UserDAO>() {
             @Override
-            public void onResponse(Call<String> call, Response<String> response) {
-                mNama.setText(response.toString());
+            public void onResponse(Call<UserDAO> call, Response<UserDAO> response) {
+                Toast.makeText(HomeActivity.this, nEmail, Toast.LENGTH_SHORT).show();
+                //mNama.setText(response.body().getNama());
             }
             @Override
-            public void onFailure(Call<String> call, Throwable t) {
+            public void onFailure(Call<UserDAO> call, Throwable t) {
                 Toast.makeText(HomeActivity.this, "Tidak bisa mengambil data user", Toast.LENGTH_SHORT).show();
             }
-        });*/
+        });
 
         mTampilPengeluaran.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(HomeActivity.this, ShowPengeluaranHariActivity.class);
+                Bundle mBundle = new Bundle();
+                mBundle.putString("email",nEmail);
+                i.putExtra("login",mBundle);
                 startActivity(i);
             }
         });
@@ -93,6 +98,9 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(HomeActivity.this, TambahPengeluaran.class);
+                Bundle mBundle = new Bundle();
+                mBundle.putString("email",nEmail);
+                i.putExtra("login",mBundle);
                 startActivity(i);
             }
         });
@@ -101,6 +109,9 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(HomeActivity.this, AturJamMakan.class);
+                Bundle mBundle = new Bundle();
+                mBundle.putString("email",nEmail);
+                i.putExtra("login",mBundle);
                 startActivity(i);
             }
         });
@@ -109,6 +120,9 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(HomeActivity.this, MainActivity.class);
+                Bundle mBundle = new Bundle();
+                mBundle.putString("email",nEmail);
+                i.putExtra("login",mBundle);
                 startActivity(i);
             }
         });

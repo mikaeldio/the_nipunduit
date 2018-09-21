@@ -25,5 +25,5 @@ public interface ApiClient {
     );
 
     @GET("view-profil.php")
-    Call<String> getProfil(@Query("email") String email);
+    Call<UserDAO> getProfil(@Query("email") String email);
 }
