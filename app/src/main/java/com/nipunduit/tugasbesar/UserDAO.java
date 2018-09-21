@@ -6,6 +6,10 @@ public class UserDAO {
     String telp;
     String password;
 
+    //cek response jeson
+    String error;
+    String error_msg;
+
     public UserDAO(String nama, String email, String telp, String password){
         this.nama=nama;
         this.email=email;
@@ -29,6 +33,14 @@ public class UserDAO {
         return password;
     }
 
+    public String getError() {
+        return error;
+    }
+
+    public String getError_msg() {
+        return error_msg;
+    }
+
     public void setNama(String nama) {
         this.nama = nama;
     }
@@ -45,6 +57,14 @@ public class UserDAO {
         this.password = password;
     }
 
+    public void setError_message(String error_msg) {
+        this.error_msg = error_msg;
+    }
+
+    public void setError(String error) {
+        this.error = error;
+    }
+
     public class val{
         UserDAO result;
 
@@ -53,3 +73,8 @@ public class UserDAO {
         }
     }
 }
+
+
+
+
+

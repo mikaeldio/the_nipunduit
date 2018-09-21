@@ -61,10 +61,10 @@ public class HomeActivity extends AppCompatActivity {
         mKeluar = (Button) findViewById(R.id.mKeluar);
         mNama = (TextView) findViewById(R.id.mNama);
 
-        nBundle=getIntent().getBundleExtra("login");
-        nEmail=nBundle.getString("email");
+       // nBundle=getIntent().getBundleExtra("login");
+        //nEmail=nBundle.getString("email");
 
-        Retrofit.Builder builder = new Retrofit.Builder()
+        /*Retrofit.Builder builder = new Retrofit.Builder()
                 .baseUrl("https://nipunduit.000webhostapp.com/api/")
                 .addConverterFactory(GsonConverterFactory.create());
         Retrofit retrofit=builder.build();
@@ -79,7 +79,7 @@ public class HomeActivity extends AppCompatActivity {
             public void onFailure(Call<String> call, Throwable t) {
                 Toast.makeText(HomeActivity.this, "Tidak bisa mengambil data user", Toast.LENGTH_SHORT).show();
             }
-        });
+        });*/
 
         mTampilPengeluaran.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -69,28 +69,47 @@ public class RegisterActivity extends AppCompatActivity {
     public void onClickRegister(){
         if(mName.getText().toString().isEmpty() ||  mEmail.getText().toString().isEmpty() || mTelp.getText().toString().isEmpty()
                 || mPassword.getText().toString().isEmpty() || mConfPassword.getText().toString().isEmpty()){
-            Toast.makeText(this, "Data tidak boleh ada  yang kosong", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Data tidak boleh ada yang kosong", Toast.LENGTH_SHORT).show();
         }
         else{
-            Retrofit.Builder builder = new Retrofit.Builder()
-                    .baseUrl("https://nipunduit.000webhostapp.com/api/")
-                    .addConverterFactory(GsonConverterFactory.create());
-            Retrofit retrofit=builder.build();
-            ApiClient apiClient = retrofit.create(ApiClient.class);
-            Call<UserDAO> userDAOCall = apiClient.registerUser(mName.getText().toString(), mEmail.getText().toString(),
-                    mTelp.getText().toString(),mPassword.getText().toString());
-            userDAOCall.enqueue(new Callback<UserDAO>() {
-                @Override
-                public void onResponse(Call<UserDAO> call, Response<UserDAO> response) {
-                    Toast.makeText(RegisterActivity.this, "Pendaftaran akun berhasil", Toast.LENGTH_SHORT).show();
-                    startIntent();
-                }
+            String mPass = mPassword.getText().toString();
+            String mConfPass = mConfPassword.getText().toString();
+            if(mPass.equals(mConfPass)){
+                Retrofit.Builder builder = new Retrofit.Builder()
+                        .baseUrl("https://nipunduit.000webhostapp.com/api/")
+                        .addConverterFactory(GsonConverterFactory.create());
+                Retrofit retrofit=builder.build();
+                ApiClient apiClient = retrofit.create(ApiClient.class);
+                Call<UserDAO> userDAOCall = apiClient.registerUser(mName.getText().toString(), mEmail.getText().toString(),
+                        mTelp.getText().toString(),mPassword.getText().toString());
+                userDAOCall.enqueue(new Callback<UserDAO>() {
+                    @Override
+                    public void onResponse(Call<UserDAO> call, Response<UserDAO> response) {
+                        if(response.isSuccessful()){
+                            String error = response.body().getError();
+                            if(error.equals("true")){
+                                String error_message = response.body().getError_msg();
+                                Toast.makeText(RegisterActivity.this, error_message, Toast.LENGTH_SHORT).show();
+                            }
+                            else{
+                                Toast.makeText(RegisterActivity.this, "Pendaftaran akun berhasil", Toast.LENGTH_SHORT).show();
+                                startIntent();
+                            }
+                        }
+                        else{
+                            Toast.makeText(RegisterActivity.this,"Pendaftaran akun gagal", Toast.LENGTH_SHORT).show();
+                        }
+                    }
 
-                @Override
-                public void onFailure(Call<UserDAO> call, Throwable t) {
-                    Toast.makeText(RegisterActivity.this,"Pendaftaran akun gagal", Toast.LENGTH_SHORT).show();
-                }
-            });
+                    @Override
+                    public void onFailure(Call<UserDAO> call, Throwable t) {
+                        Toast.makeText(RegisterActivity.this,"Gagal terkoneksi dengan database", Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+            else{
+                Toast.makeText(RegisterActivity.this, "Konfirmasi Password Tidak Sesuai", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 }
