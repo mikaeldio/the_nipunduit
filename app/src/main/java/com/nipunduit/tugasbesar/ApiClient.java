@@ -26,4 +26,13 @@ public interface ApiClient {
 
     @GET("view-profil.php")
     Call<UserDAO> getProfil(@Query("email") String email);
+
+    @POST("edit-profil.php")
+    @FormUrlEncoded
+    Call<UserDAO> editUser(
+            @Field("name") String nama,
+            @Field("email") String email,
+            @Field("phone") String phone,
+            @Field("password") String password
+    );
 }
