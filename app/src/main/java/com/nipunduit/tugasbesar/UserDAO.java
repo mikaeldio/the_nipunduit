@@ -1,24 +1,24 @@
 package com.nipunduit.tugasbesar;
 
 public class UserDAO {
-    String nama;
+    String name;
     String email;
-    String telp;
+    String phone;
     String password;
 
     //cek response jeson
     String error;
     String error_msg;
 
-    public UserDAO(String nama, String email, String telp, String password){
-        this.nama=nama;
+    public UserDAO(String name, String email, String phone, String password){
+        this.name=name;
         this.email=email;
-        this.telp=telp;
+        this.phone=phone;
         this.password=password;
     }
 
     public String getNama() {
-        return nama;
+        return name;
     }
 
     public String getEmail() {
@@ -26,7 +26,7 @@ public class UserDAO {
     }
 
     public String getTelp() {
-        return telp;
+        return phone;
     }
 
     public String getPassword() {
@@ -42,7 +42,7 @@ public class UserDAO {
     }
 
     public void setNama(String nama) {
-        this.nama = nama;
+        this.name = nama;
     }
 
     public void setEmail(String email) {
@@ -50,7 +50,7 @@ public class UserDAO {
     }
 
     public void setTelp(String telp) {
-        this.telp = telp;
+        this.phone = telp;
     }
 
     public void setPassword(String password) {

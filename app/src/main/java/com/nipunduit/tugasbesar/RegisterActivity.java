@@ -95,7 +95,9 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     public void onClickRegister(){
-        if(mName.getText().toString().isEmpty() ||  mEmail.getText().toString().isEmpty() || mTelp.getText().toString().isEmpty()
+        if(!mPassword.equals(mConfPassword)) {
+            mConfPassword.setError("Password tidak sama");
+        }else if(mName.getText().toString().isEmpty() ||  mEmail.getText().toString().isEmpty() || mTelp.getText().toString().isEmpty()
                 || mPassword.getText().toString().isEmpty() || mConfPassword.getText().toString().isEmpty()){
             Toast.makeText(this, "Data tidak boleh ada yang kosong", Toast.LENGTH_SHORT).show();
         }
