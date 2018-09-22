@@ -23,41 +23,7 @@
         android:layout_centerHorizontal="true"
         android:text="." />
 
-<<<<<<< HEAD
-=======
-    <Button
-        android:id="@+id/mTambah"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="127dp"
-        android:layout_toStartOf="@+id/mKeluar"
-        android:background="#ffbb00"
-        android:text="Tambah Pengeluaran"
-        android:textColor="#f1f1f1" />
 
-    <Button
-        android:id="@+id/mJamMakan"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/mTampil"
-        android:layout_marginBottom="64dp"
-        android:background="#ffbb00"
-        android:text="ATUR JAM MAKAN"
-        android:textColor="#f1f1f1" />
-
-    <Button
-        android:id="@+id/mTampil"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:layout_alignTop="@+id/mTambah"
-        android:layout_toEndOf="@+id/mKeluar"
-        android:background="#ffbb00"
-        android:text="Tampil Pengeluaran"
-        android:textColor="#f1f1f1" />
-
->>>>>>> 8a76f5868719e3dad1d40c6fdaafcba4e72857f2
     <TextView
         android:id="@+id/text_sisaBudget"
         android:layout_width="wrap_content"
@@ -103,20 +69,6 @@
         android:text="-"
         android:textColor="#f1f1f1"/>
 
-<<<<<<< HEAD
-=======
-    <Button
-        android:id="@+id/mKeluar"
-        android:layout_width="53dp"
-        android:layout_height="36dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="13dp"
-        android:background="#ff0004"
-        android:text="Keluar"
-        android:textColor="#f1f1f1" />
-
->>>>>>> 8a76f5868719e3dad1d40c6fdaafcba4e72857f2
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
@@ -128,11 +80,11 @@
 
     <Button
         android:id="@+id/mKeluar"
-        android:layout_width="104dp"
-        android:layout_height="48dp"
-        android:layout_alignEnd="@+id/mJamMakan"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="59dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="18dp"
         android:background="#ff0004"
         android:text="Keluar"
         android:textColor="#f1f1f1"
@@ -140,17 +92,6 @@
 
     <Button
         android:id="@+id/btnEdit"
-<<<<<<< HEAD
-        android:layout_width="111dp"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/mKeluar"
-        android:layout_centerHorizontal="true"
-=======
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:layout_alignStart="@+id/mTambah"
-        android:layout_alignTop="@+id/mJamMakan"
->>>>>>> 8a76f5868719e3dad1d40c6fdaafcba4e72857f2
         android:background="#ffbb00"
         android:text="EDIT AKUN"
         android:textColor="#f1f1f1"
@@ -158,12 +99,12 @@
 
     <Button
         android:id="@+id/mTambah"
-        android:layout_width="102dp"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="116dp"
-        android:layout_marginStart="29dp"
+        android:layout_marginBottom="143dp"
+        android:layout_marginStart="39dp"
         android:background="#ffbb00"
         android:text="Tambah Pengeluaran"
         android:textColor="#f1f1f1"
@@ -171,11 +112,10 @@
 
     <Button
         android:id="@+id/mJamMakan"
-        android:layout_width="105dp"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/mTambah"
-        android:layout_marginStart="-9dp"
-        android:layout_toEndOf="@+id/mNama"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_alignStart="@+id/mTampil"
+        android:layout_alignTop="@+id/btnBudget"
         android:background="#ffbb00"
         android:text="ATUR JAM MAKAN"
         android:textColor="#f1f1f1"
@@ -183,10 +123,10 @@
 
     <Button
         android:id="@+id/mTampil"
-        android:layout_width="109dp"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
         android:layout_alignTop="@+id/mTambah"
-        android:layout_centerHorizontal="true"
+        android:layout_toEndOf="@+id/mKeluar"
         android:background="#ffbb00"
         android:text="Tampil Pengeluaran"
         android:textColor="#f1f1f1"
@@ -194,11 +134,11 @@
 
     <Button
         android:id="@+id/btnBudget"
-        android:layout_width="103dp"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
         android:layout_alignStart="@+id/text_sisaBudget"
-        android:layout_alignTop="@+id/mKeluar"
-        android:layout_marginStart="-18dp"
+        android:layout_marginBottom="79dp"
         android:background="#ffbb00"
         android:text="Tambah Info Keuangan"
         android:textColor="#f1f1f1"
