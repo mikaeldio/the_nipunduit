@@ -58,9 +58,7 @@ public class EditProfileActivity extends AppCompatActivity {
     }
 
     private void onClickRegister() {
-        if(!mPassword.equals(mConfPassword)) {
-            mConfPassword.setError("Password tidak sama");
-        }else if(mName.getText().toString().isEmpty() ||  nEmail.isEmpty() || mTelp.getText().toString().isEmpty()
+        if(mName.getText().toString().isEmpty() ||  nEmail.isEmpty() || mTelp.getText().toString().isEmpty()
                 || mPassword.getText().toString().isEmpty() || mConfPassword.getText().toString().isEmpty()){
             Toast.makeText(this, "Data tidak boleh ada yang kosong", Toast.LENGTH_SHORT).show();
         }
@@ -73,7 +71,7 @@ public class EditProfileActivity extends AppCompatActivity {
                         .addConverterFactory(GsonConverterFactory.create());
                 Retrofit retrofit=builder.build();
                 ApiClient apiClient = retrofit.create(ApiClient.class);
-                Call<UserDAO> userDAOCall = apiClient.editUser(mName.getText().toString(), nEmail,
+                Call<UserDAO> userDAOCall = apiClient.editUser(mName.getText().toString(), nEmail.toString(),
                         mTelp.getText().toString(),mPassword.getText().toString());
                 userDAOCall.enqueue(new Callback<UserDAO>() {
                     @Override
@@ -101,15 +99,17 @@ public class EditProfileActivity extends AppCompatActivity {
                 });
             }
             else{
-                Toast.makeText(EditProfileActivity.this, "Konfirmasi Password Tidak Sesuai", Toast.LENGTH_SHORT).show();
+                mConfPassword.setError("Konfirmasi Password Tidak Sesuai");
             }
         }
     }
 
     private void startIntent() {
         Intent  intent =  new Intent(getApplicationContext(), HomeActivity.class);
+        Bundle mBundle = new Bundle();
+        mBundle.putString("email",nEmail);
+        mBundle.putString("password",mPassword.getText().toString());
+        intent.putExtra("login",mBundle);
         startActivity(intent);
     }
-
-
 }

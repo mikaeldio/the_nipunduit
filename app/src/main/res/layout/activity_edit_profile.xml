@@ -7,82 +7,35 @@
     android:background="@color/colorPrimary"
     tools:context=".EditProfileActivity">
 
-    <EditText
-        android:id="@+id/mConfPassword"
-        android:layout_width="226dp"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="-125dp"
-        android:ems="10"
-        android:hint="Confirm Password"
-        android:inputType="textPassword" />
-
     <TextView
         android:id="@+id/textTelp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/mTelp"
-        android:layout_alignStart="@+id/mConfPassword"
-        android:text="No. Telp" />
-
-    <EditText
-        android:id="@+id/mTelp"
-        android:layout_width="227dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="236dp"
-        android:ems="10"
-        android:hint="No. Telp"
-        android:inputType="textPersonName" />
-
-    <TextView
-        android:id="@+id/textEmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/mConfPassword"
-        android:layout_marginTop="157dp"
-        android:text="Email" />
+        android:layout_alignStart="@+id/textName"
+        android:layout_marginTop="136dp"
+        android:text="No. Telp"
+        android:textColor="#f1f1f1"/>
 
-    <EditText
-        android:id="@+id/mEmail"
-        android:layout_width="227dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textEmail"
-        android:layout_centerHorizontal="true"
-        android:ems="10"
-        android:hint="Email"
-        android:inputType="textPersonName" />
-
-    <EditText
-        android:id="@+id/mName"
-        android:layout_width="227dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="101dp"
-        android:ems="10"
-        android:hint="Name"
-        android:inputType="textPersonName" />
-
-    <Button
-        android:id="@+id/mDone"
-        android:layout_width="89dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="150dp"
-        android:text="DONE" />
 
     <TextView
         android:id="@+id/textName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/mName"
+        android:layout_alignParentTop="true"
         android:layout_alignStart="@+id/mConfPassword"
-        android:layout_marginBottom="-101dp"
-        android:text="Name" />
+        android:layout_marginTop="59dp"
+        android:text="Name"
+        android:textColor="#f1f1f1"/>
+
+    <TextView
+        android:id="@+id/textPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/textTelp"
+        android:layout_centerVertical="true"
+        android:text="Password"
+        android:textColor="#f1f1f1"/>
 
     <TextView
         android:id="@+id/textView4"
@@ -90,7 +43,96 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="12dp"
         android:text="Edite Profile"
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        android:textColor="#f1f1f1"/>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="228dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="213dp"
+        android:text="**) Jika tidak ingin mengganti password, isi dengan password saat ini."
+        android:textSize="10dp"
+        android:textColor="#f1f1f1"/>
+
+    <EditText
+        android:id="@+id/mPassword"
+        android:layout_width="227dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textPassword"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:textColor="#f1f1f1"/>
+
+    <EditText
+        android:id="@+id/mName"
+        android:layout_width="227dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textName"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:hint="Name"
+        android:inputType="textPersonName"
+        android:textColor="#f1f1f1"/>
+
+    <EditText
+        android:id="@+id/mTelp"
+        android:layout_width="227dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textTelp"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:hint="No. Telp"
+        android:inputType="textPersonName"
+        android:textColor="#f1f1f1"/>
+
+    <Button
+        android:id="@+id/mDone"
+        android:layout_width="89dp"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/mConfPassword"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="54dp"
+        android:text="DONE"
+        android:textColor="#f1f1f1"
+        android:background="#ff7700"/>
+
+    <Button
+        android:id="@+id/mBatal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/mConfPassword"
+        android:layout_alignTop="@+id/mDone"
+        android:text="BATAL"
+        android:textColor="#f1f1f1"
+        android:background="#ff0000"/>
+
+    <TextView
+        android:id="@+id/textConfPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/textTelp"
+        android:layout_marginBottom="171dp"
+        android:text="Confirm Password"
+        android:textColor="#f1f1f1"/>
+
+    <EditText
+        android:id="@+id/mConfPassword"
+        android:layout_width="226dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textConfPassword"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="-171dp"
+        android:ems="10"
+        android:hint="Confirm Password"
+        android:inputType="textPassword"
+        android:textColor="#f1f1f1"/>
+
 </RelativeLayout>

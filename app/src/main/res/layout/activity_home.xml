@@ -19,54 +19,62 @@
         android:id="@+id/mNama"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_below="@+id/ProfilePic"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="184dp"
-        android:text="Selamat datang, John" />
+        android:text="Selamat datang, John"
+        android:textColor="#f1f1f1"/>
 
     <Button
         android:id="@+id/mTambah"
-        android:layout_width="108dp"
+        android:layout_width="102dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="100dp"
-        android:layout_marginStart="52dp"
-        android:text="Tambah Pengeluaran" />
+        android:layout_marginBottom="116dp"
+        android:layout_marginStart="29dp"
+        android:background="#ffbb00"
+        android:text="Tambah Pengeluaran"
+        android:textColor="#f1f1f1" />
 
     <Button
         android:id="@+id/mJamMakan"
-        android:layout_width="108dp"
+        android:layout_width="105dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
         android:layout_alignTop="@+id/mTambah"
-        android:layout_marginEnd="45dp"
-        android:text="Atur Jam Makan" />
+        android:layout_marginStart="-9dp"
+        android:layout_toEndOf="@+id/mNama"
+        android:background="#ffbb00"
+        android:text="ATUR JAM MAKAN"
+        android:textColor="#f1f1f1" />
 
     <Button
         android:id="@+id/mTampil"
-        android:layout_width="108dp"
-        android:layout_height="70dp"
-        android:layout_alignStart="@+id/mTambah"
-        android:layout_alignTop="@+id/mKeluar"
-        android:text="Tampil Pengeluaran" />
+        android:layout_width="109dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/mTambah"
+        android:layout_centerHorizontal="true"
+        android:background="#ffbb00"
+        android:text="Tampil Pengeluaran"
+        android:textColor="#f1f1f1" />
 
     <TextView
         android:id="@+id/text_sisaBudget"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/mTambah"
+        android:layout_alignParentStart="true"
         android:layout_centerVertical="true"
-        android:text="Sisa Budget Bulan Ini" />
+        android:layout_marginStart="45dp"
+        android:text="Sisa Budget Bulan Ini"
+        android:textColor="#f1f1f1"/>
 
     <TextView
         android:id="@+id/text_target"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/mTambah"
-        android:layout_marginBottom="231dp"
-        android:text="Target Tabungan" />
+        android:layout_alignStart="@+id/text_sisaBudget"
+        android:layout_below="@+id/text_sisaBudget"
+        android:text="Target Tabungan"
+        android:textColor="#f1f1f1"/>
 
     <TextView
         android:id="@+id/mBB"
@@ -74,7 +82,8 @@
         android:layout_height="wrap_content"
         android:layout_alignEnd="@+id/ProfilePic"
         android:layout_alignTop="@+id/textView2"
-        android:text="-" />
+        android:text="-"
+        android:textColor="#f1f1f1"/>
 
     <TextView
         android:id="@+id/mSBB"
@@ -82,7 +91,8 @@
         android:layout_height="wrap_content"
         android:layout_alignEnd="@+id/ProfilePic"
         android:layout_alignTop="@+id/text_sisaBudget"
-        android:text="-" />
+        android:text="-"
+        android:textColor="#f1f1f1"/>
 
     <TextView
         android:id="@+id/mTT"
@@ -90,24 +100,38 @@
         android:layout_height="wrap_content"
         android:layout_alignEnd="@+id/ProfilePic"
         android:layout_alignTop="@+id/text_target"
-        android:text="-" />
+        android:text="-"
+        android:textColor="#f1f1f1"/>
 
     <Button
         android:id="@+id/mKeluar"
-        android:layout_width="110dp"
-        android:layout_height="71dp"
-        android:layout_alignStart="@+id/mJamMakan"
-        android:layout_below="@+id/mTambah"
-        android:layout_marginTop="-89dp"
-        android:text="Keluar" />
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="59dp"
+        android:layout_toStartOf="@+id/mBB"
+        android:background="#ff0004"
+        android:text="Keluar"
+        android:textColor="#f1f1f1" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/mTambah"
-        android:layout_marginTop="233dp"
-        android:text="Budget Bulan ini" />
+        android:layout_above="@+id/text_sisaBudget"
+        android:layout_alignStart="@+id/text_sisaBudget"
+        android:text="Budget Bulan ini"
+        android:textColor="#f1f1f1"/>
+
+    <Button
+        android:id="@+id/btnEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@+id/mKeluar"
+        android:layout_marginStart="93dp"
+        android:background="#ffbb00"
+        android:text="EDIT AKUN"
+        android:textColor="#f1f1f1" />
 
 </RelativeLayout>
