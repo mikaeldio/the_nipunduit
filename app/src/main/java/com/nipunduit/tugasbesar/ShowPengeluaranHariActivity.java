@@ -15,7 +15,7 @@ import java.util.List;
 public class ShowPengeluaranHariActivity extends AppCompatActivity {
     private List<PengeluaranDAO> mListPengeluaranHarian = new ArrayList<>();
     private RecyclerView recyclerView;
-    private RecycleAdapter recycleAdapter;
+    private RecycleAdapterHari recycleAdapterHari;
     private RecyclerView.LayoutManager layoutManager;
     private TextView mTotal,mDate;
     private Integer totalPrice = 0;
@@ -40,11 +40,11 @@ public class ShowPengeluaranHariActivity extends AppCompatActivity {
         mTotal=(TextView) findViewById(R.id.mTotal);
         recyclerView = findViewById(R.id.recycler_view_hari);
         mDate =(TextView) findViewById(R.id.mDate);
-        recycleAdapter = new RecycleAdapter(mListPengeluaranHarian);
+        recycleAdapterHari = new RecycleAdapterHari(mListPengeluaranHarian);
         layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);
         setRecycleView();
-        recyclerView.setAdapter(recycleAdapter);
+        recyclerView.setAdapter(recycleAdapterHari);
 
         for(int i=0; i<mListPengeluaranHarian.size(); i++)
         {
@@ -62,6 +62,6 @@ public class ShowPengeluaranHariActivity extends AppCompatActivity {
         mList= PengeluaranDAO.listAll(PengeluaranDAO.class);
 
         mListPengeluaranHarian.addAll(mList);
-        recycleAdapter.notifyDataSetChanged();
+        recycleAdapterHari.notifyDataSetChanged();
     }
 }

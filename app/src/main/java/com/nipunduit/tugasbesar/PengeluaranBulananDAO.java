@@ -1,8 +1,9 @@
 package com.nipunduit.tugasbesar;
 
 import java.util.Date;
+import com.orm.SugarRecord;
 
-public class PengeluaranBulananDAO {
+public class PengeluaranBulananDAO extends SugarRecord{
     Date Tanggal;
     Integer Jumlah;
 

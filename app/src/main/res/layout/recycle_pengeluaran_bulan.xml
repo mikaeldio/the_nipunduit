@@ -17,7 +17,7 @@
             android:id="@+id/mDay"
             android:layout_width="296dp"
             android:layout_height="wrap_content"
-            android:text="Keterangan:" />
+            android:text="Tanggal:" />
 
         <TextView
             android:id="@+id/mJumlah"
@@ -27,9 +27,9 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/mEdit"
+        android:id="@+id/mDetail"
         android:layout_width="83dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:text="Edit" />
+        android:text="Detail" />
 </LinearLayout>
