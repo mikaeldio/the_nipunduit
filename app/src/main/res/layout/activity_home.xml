@@ -19,10 +19,9 @@
         android:id="@+id/mNama"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_below="@+id/ProfilePic"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="184dp"
-        android:text="Selamat datang, John" />
+        android:text="." />
 
     <Button
         android:id="@+id/mTambah"
@@ -65,7 +64,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignStart="@+id/mTambah"
-        android:layout_marginBottom="231dp"
+        android:layout_marginBottom="230dp"
         android:text="Target Tabungan" />
 
     <TextView
@@ -107,7 +106,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignStart="@+id/mTambah"
-        android:layout_marginTop="233dp"
+        android:layout_marginTop="230dp"
         android:text="Budget Bulan ini" />
 
 </RelativeLayout>
