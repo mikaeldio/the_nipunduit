@@ -9,10 +9,10 @@ import android.widget.TextView;
 
 import java.util.List;
 
-public class RecycleAdapter extends RecyclerView.Adapter<RecycleAdapter.MyViewHolder> {
+public class RecycleAdapterHari extends RecyclerView.Adapter<RecycleAdapterHari.MyViewHolder> {
 
     private List<PengeluaranDAO> mList;
-    public RecycleAdapter(List<PengeluaranDAO> mList)
+    public RecycleAdapterHari(List<PengeluaranDAO> mList)
     {
         this.mList=mList;
     }
@@ -22,7 +22,7 @@ public class RecycleAdapter extends RecyclerView.Adapter<RecycleAdapter.MyViewHo
 
         public MyViewHolder(@NonNull View itemView){
             super(itemView);
-            mKeterangan=itemView.findViewById(R.id.mKeterangan);
+            mKeterangan=itemView.findViewById(R.id.mDay);
             mJumlah=itemView.findViewById(R.id.mJumlah);
         }
     }
@@ -31,13 +31,13 @@ public class RecycleAdapter extends RecyclerView.Adapter<RecycleAdapter.MyViewHo
 
     @NonNull
     @Override
-    public RecycleAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType){
+    public RecycleAdapterHari.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType){
         View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycle_pengeluaran_harian,parent,false);
         return new MyViewHolder(itemView);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecycleAdapter.MyViewHolder holder, int position){
+    public void onBindViewHolder(@NonNull RecycleAdapterHari.MyViewHolder holder, int position){
         PengeluaranDAO pengeluaranDAO= mList.get(position);
         holder.mKeterangan.setText("Keterangan\t:"+pengeluaranDAO.Keterangan);
         holder.mJumlah.setText("Jumlah\t\t: Rp. "+pengeluaranDAO.Jumlah);
