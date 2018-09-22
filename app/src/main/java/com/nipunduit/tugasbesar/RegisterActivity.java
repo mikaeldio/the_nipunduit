@@ -74,7 +74,6 @@ public class RegisterActivity extends AppCompatActivity {
 
         Pattern pattern =Pattern.compile(emailPattern);
         Matcher matcher=pattern.matcher(email);
-
         return matcher.matches();
     }
 
