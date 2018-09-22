@@ -1,7 +1,5 @@
 package com.nipunduit.tugasbesar;
 
-import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -23,9 +21,6 @@ public class MainActivity extends AppCompatActivity {
     private Button mRegister;
     private EditText mEmail;
     private EditText mPassword;
-    ProgressDialog loading;
-
-    Context mContext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -44,10 +44,9 @@ public class HomeActivity extends AppCompatActivity {
     private Button mTampilPengeluaran;
     private Button mAturMakan;
     private Button mKeluar;
+    private Button mEditProfil;
 
     private String nEmail;
-    private JSONObject jObject;
-
     private Bundle nBundle;
 
     @Override
@@ -60,6 +59,7 @@ public class HomeActivity extends AppCompatActivity {
         mAturMakan = (Button) findViewById(R.id.mJamMakan);
         mKeluar = (Button) findViewById(R.id.mKeluar);
         mNama = (TextView) findViewById(R.id.mNama);
+        mEditProfil  = (Button) findViewById(R.id.btnEdit);
 
         nBundle=getIntent().getBundleExtra("login");
         nEmail= nBundle.getString("email");
@@ -121,6 +121,17 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(HomeActivity.this, MainActivity.class);
+                Bundle mBundle = new Bundle();
+                mBundle.putString("email",nEmail);
+                i.putExtra("login",mBundle);
+                startActivity(i);
+            }
+        });
+
+        mEditProfil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(HomeActivity.this, EditProfileActivity.class);
                 Bundle mBundle = new Bundle();
                 mBundle.putString("email",nEmail);
                 i.putExtra("login",mBundle);
