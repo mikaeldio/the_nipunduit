@@ -21,13 +21,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/ProfilePic"
         android:layout_centerHorizontal="true"
-<<<<<<< HEAD
         android:text="." />
-=======
-        android:text="Selamat datang, John"
-        android:textColor="#f1f1f1"/>
->>>>>>> d1c39153b87e0e2b9269c7e7997a5311fa971b32
-
     <Button
         android:id="@+id/mTambah"
         android:layout_width="102dp"
@@ -75,17 +69,10 @@
         android:id="@+id/text_target"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-<<<<<<< HEAD
         android:layout_alignParentBottom="true"
         android:layout_alignStart="@+id/mTambah"
         android:layout_marginBottom="230dp"
         android:text="Target Tabungan" />
-=======
-        android:layout_alignStart="@+id/text_sisaBudget"
-        android:layout_below="@+id/text_sisaBudget"
-        android:text="Target Tabungan"
-        android:textColor="#f1f1f1"/>
->>>>>>> d1c39153b87e0e2b9269c7e7997a5311fa971b32
 
     <TextView
         android:id="@+id/mBB"
@@ -129,16 +116,10 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-<<<<<<< HEAD
         android:layout_alignParentTop="true"
         android:layout_alignStart="@+id/mTambah"
         android:layout_marginTop="230dp"
         android:text="Budget Bulan ini" />
-=======
-        android:layout_above="@+id/text_sisaBudget"
-        android:layout_alignStart="@+id/text_sisaBudget"
-        android:text="Budget Bulan ini"
-        android:textColor="#f1f1f1"/>
 
     <Button
         android:id="@+id/btnEdit"
@@ -150,6 +131,5 @@
         android:background="#ffbb00"
         android:text="EDIT AKUN"
         android:textColor="#f1f1f1" />
->>>>>>> d1c39153b87e0e2b9269c7e7997a5311fa971b32
 
 </RelativeLayout>

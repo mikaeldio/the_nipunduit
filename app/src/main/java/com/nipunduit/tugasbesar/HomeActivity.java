@@ -63,7 +63,6 @@ public class HomeActivity extends AppCompatActivity {
 
         nBundle=getIntent().getBundleExtra("login");
         nEmail= nBundle.getString("email");
-        Toast.makeText(HomeActivity.this, nEmail, Toast.LENGTH_SHORT).show();
 
         Retrofit.Builder builder = new Retrofit.Builder()
                 .baseUrl("https://nipunduit.000webhostapp.com/api/")
