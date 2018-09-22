@@ -16,14 +16,14 @@
         android:text="BATAL" />
 
     <EditText
-        android:id="@+id/mbudget2"
+        android:id="@+id/mPendapatan"
         android:layout_width="237dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignStart="@+id/textJudul"
         android:layout_marginTop="163dp"
         android:ems="10"
-        android:hint="Masukkan jumlah anda"
+        android:hint="budgetBulanan"
         android:inputType="numberDecimal" />
 
     <TextView
@@ -71,7 +71,7 @@
         android:layout_alignStart="@+id/textJudul"
         android:layout_marginBottom="145dp"
         android:ems="10"
-        android:hint="Masukkan jumlah anda"
+        android:hint="targetBulanan"
         android:inputType="numberDecimal" />
 
     <Spinner
@@ -80,7 +80,7 @@
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/textJudul"
         android:layout_centerVertical="true"
-        android:entries="@array/spinnerFrekuensi" />
+        android:entries="@array/frekuensi_menabung" />
 
     <Button
         android:id="@+id/mDone"
@@ -89,5 +89,6 @@
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="73dp"
         android:layout_toEndOf="@+id/textFrekuensi"
+        android:onClick="buttonDone"
         android:text="DONE" />
 </RelativeLayout>
