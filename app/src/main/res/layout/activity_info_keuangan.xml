@@ -26,9 +26,14 @@
         android:layout_alignStart="@+id/textJudul"
         android:layout_marginTop="163dp"
         android:ems="10"
+<<<<<<< HEAD
+        android:hint="budgetBulanan"
+        android:inputType="numberDecimal" />
+=======
         android:hint="Masukkan jumlah anda"
         android:inputType="numberDecimal"
         android:textColor="#f1f1f1" />
+>>>>>>> df11c07ba6ae934a89a5ced5e4c61fa98564a682
 
     <TextView
         android:id="@+id/textJudul"
@@ -79,9 +84,14 @@
         android:layout_below="@+id/textTarget"
         android:layout_marginTop="-197dp"
         android:ems="10"
+<<<<<<< HEAD
+        android:hint="targetBulanan"
+        android:inputType="numberDecimal" />
+=======
         android:hint="Masukkan jumlah anda"
         android:inputType="numberDecimal"
         android:textColor="#f1f1f1" />
+>>>>>>> df11c07ba6ae934a89a5ced5e4c61fa98564a682
 
     <Spinner
         android:id="@+id/spinnerFrekuensi"

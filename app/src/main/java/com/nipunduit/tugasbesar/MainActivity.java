@@ -14,9 +14,11 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+//import at.rufuszhu.ui.PlayButtonAnimation;
 
 public class MainActivity extends AppCompatActivity {
 //test lupuz;
+// PlayButtonAnimation btn;
     private Button mLogin;
     private Button mRegister;
     private EditText mEmail;
@@ -41,6 +43,13 @@ public class MainActivity extends AppCompatActivity {
                 onClickLogin();
             }
         });
+
+        //btn = findViewById(R.id.playButtonAnimation);
+        //btn.setOnClickListener( new View.OnClickListener(){
+//           public void onClick(View v){
+   //            Toast.makeText(MainActivity.this, "Play Button Animation Clicked",Toast.LENGTH_SHORT).show();
+   //        }
+    //    });
     }
 
     private void setAtribut() {

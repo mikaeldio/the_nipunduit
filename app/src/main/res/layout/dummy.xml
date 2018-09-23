@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/ProfilePic"
+        android:layout_width="185dp"
+        android:layout_height="164dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        app:srcCompat="@drawable/ic_profile" />
+
+    <TextView
+        android:id="@+id/mNama"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="180dp"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/text_budgetBulan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="218dp"
+        android:layout_toStartOf="@+id/mNama"
+        android:text="Budget Bulan Ini" />
+
+    <Button
+        android:id="@+id/mTambah"
+        android:layout_width="108dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/text_budgetBulan"
+        android:layout_marginBottom="115dp"
+        android:text="Tambah Pengeluaran" />
+
+    <Button
+        android:id="@+id/mJamMakan"
+        android:layout_width="108dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/mTambah"
+        android:layout_marginEnd="66dp"
+        android:text="Atur Jam Makan" />
+
+    <Button
+        android:id="@+id/mTampil"
+        android:layout_width="108dp"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/text_budgetBulan"
+        android:layout_below="@+id/mTambah"
+        android:layout_marginTop="-115dp"
+        android:text="Tampil Pengeluaran Hari Ini" />
+
+    <TextView
+        android:id="@+id/text_sisaBudget"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/text_budgetBulan"
+        android:layout_marginTop="246dp"
+        android:text="Sisa Budget Bulan Ini" />
+
+    <TextView
+        android:id="@+id/text_target"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/text_budgetBulan"
+        android:layout_marginBottom="250dp"
+        android:text="Target Tabungan" />
+
+    <TextView
+        android:id="@+id/text_budgetHari"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/text_budgetBulan"
+        android:layout_marginBottom="222dp"
+        android:text="Budget Hari Ini" />
+
+    <TextView
+        android:id="@+id/text_sisaBudgetH"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/text_budgetBulan"
+        android:layout_marginBottom="194dp"
+        android:text="Sisa Budget Hari Ini" />
+
+    <TextView
+        android:id="@+id/mBB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/text_budgetBulan"
+        android:layout_marginEnd="85dp"
+        android:text="-" />
+
+    <TextView
+        android:id="@+id/mSBB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/text_sisaBudget"
+        android:layout_toStartOf="@+id/mBB"
+        android:text="-" />
+
+    <TextView
+        android:id="@+id/mTT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/text_target"
+        android:layout_toStartOf="@+id/mBB"
+        android:text="-" />
+
+    <TextView
+        android:id="@+id/mBH"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/text_budgetHari"
+        android:layout_toStartOf="@+id/mBB"
+        android:text="-" />
+
+    <TextView
+        android:id="@+id/mSBH"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/text_sisaBudgetH"
+        android:layout_toStartOf="@+id/mBB"
+        android:text="-" />
+
+    <Button
+        android:id="@+id/mKeluar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="54dp"
+        android:layout_toEndOf="@+id/mNama"
+        android:text="Keluar" />
+
+</RelativeLayout>
