@@ -11,21 +11,29 @@
         android:id="@+id/mBatal"
         android:layout_width="89dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignTop="@+id/mDone"
-        android:layout_marginStart="77dp"
-        android:text="BATAL" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/mPendapatan"
+        android:layout_marginBottom="80dp"
+        android:background="#ff0000"
+        android:text="BATAL"
+        android:textColor="#f1f1f1" />
 
     <EditText
         android:id="@+id/mPendapatan"
-        android:layout_width="237dp"
+        android:layout_width="268dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignStart="@+id/textJudul"
         android:layout_marginTop="163dp"
         android:ems="10"
+<<<<<<< HEAD
         android:hint="budgetBulanan"
         android:inputType="numberDecimal" />
+=======
+        android:hint="Masukkan jumlah anda"
+        android:inputType="numberDecimal"
+        android:textColor="#f1f1f1" />
+>>>>>>> df11c07ba6ae934a89a5ced5e4c61fa98564a682
 
     <TextView
         android:id="@+id/textJudul"
@@ -33,18 +41,20 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="76dp"
+        android:layout_marginTop="75dp"
         android:text="Informasi Keuangan"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        android:textColor="#f1f1f1"/>
 
     <TextView
         android:id="@+id/textBudget"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/textJudul"
-        android:layout_marginTop="132dp"
-        android:text="Jumlah Pendapatan/Budget" />
+        android:layout_above="@+id/mPendapatan"
+        android:layout_alignStart="@+id/mPendapatan"
+        android:layout_marginBottom="-163dp"
+        android:text="Jumlah Pendapatan/Budget"
+        android:textColor="#f1f1f1"/>
 
     <TextView
         android:id="@+id/textFrekuensi"
@@ -53,43 +63,53 @@
         android:layout_alignParentTop="true"
         android:layout_alignStart="@+id/textJudul"
         android:layout_marginTop="221dp"
-        android:text="Frekuensi Menabung" />
+        android:text="Frekuensi Menabung"
+        android:textColor="#f1f1f1"/>
 
     <TextView
         android:id="@+id/textTarget"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/textJudul"
-        android:layout_marginBottom="213dp"
-        android:text="Target uang yang ditabung" />
+        android:layout_alignStart="@+id/mPendapatan"
+        android:layout_marginBottom="197dp"
+        android:text="Target uang yang ditabung"
+        android:textColor="#f1f1f1"/>
 
     <EditText
         android:id="@+id/mTarget"
-        android:layout_width="237dp"
+        android:layout_width="267dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/textJudul"
-        android:layout_marginBottom="145dp"
+        android:layout_alignStart="@+id/mPendapatan"
+        android:layout_below="@+id/textTarget"
+        android:layout_marginTop="-197dp"
         android:ems="10"
+<<<<<<< HEAD
         android:hint="targetBulanan"
         android:inputType="numberDecimal" />
+=======
+        android:hint="Masukkan jumlah anda"
+        android:inputType="numberDecimal"
+        android:textColor="#f1f1f1" />
+>>>>>>> df11c07ba6ae934a89a5ced5e4c61fa98564a682
 
     <Spinner
         android:id="@+id/spinnerFrekuensi"
-        android:layout_width="159dp"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/textJudul"
-        android:layout_centerVertical="true"
-        android:entries="@array/frekuensi_menabung" />
+        android:layout_width="267dp"
+        android:layout_height="46dp"
+        android:layout_alignStart="@+id/mPendapatan"
+        android:layout_below="@+id/textFrekuensi"
+        android:entries="@array/frekuensi_menabung"
+        android:textColor="#f1f1f1" />
 
     <Button
         android:id="@+id/mDone"
         android:layout_width="93dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="73dp"
-        android:layout_toEndOf="@+id/textFrekuensi"
-        android:onClick="buttonSimpan"
-        android:text="DONE" />
+        android:layout_alignEnd="@+id/mPendapatan"
+        android:layout_alignTop="@+id/mBatal"
+        android:background="#ff6600"
+        android:text="DONE"
+        android:textColor="#f1f1f1" />
+
 </RelativeLayout>

@@ -29,8 +29,8 @@ public class EditProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_profile);
 
-        nBundle=getIntent().getBundleExtra("login");
-        nEmail= nBundle.getString("email");
+        nBundle = getIntent().getBundleExtra("login");
+        nEmail = nBundle.getString("email");
 
         setAtribut();
         mDone.setOnClickListener(new View.OnClickListener() {
@@ -42,7 +42,10 @@ public class EditProfileActivity extends AppCompatActivity {
         mBatal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(EditProfileActivity.this, MainActivity.class);
+                Intent intent = new Intent(EditProfileActivity.this, HomeActivity.class);
+                Bundle mBundle = new Bundle();
+                mBundle.putString("email",nEmail);
+                intent.putExtra("login",mBundle);
                 startActivity(intent);
             }
         });

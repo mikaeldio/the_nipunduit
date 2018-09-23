@@ -8,6 +8,7 @@ import retrofit2.http.POST;
 import retrofit2.http.Query;
 
 public interface ApiClient {
+    //CRUD untuk user
     @POST("register.php")
     @FormUrlEncoded
     Call<UserDAO> registerUser(
@@ -34,5 +35,15 @@ public interface ApiClient {
             @Field("email") String email,
             @Field("phone") String phone,
             @Field("password") String password
+    );
+
+    //CRUD untuk info budget
+    @POST("add-budget.php")
+    @FormUrlEncoded
+    Call<InfoKeuanganDAO> addBudget(
+            @Field("email") String email,
+            @Field("budget_bulanan") int budget_bulanan,
+            @Field("target_tabungan") int target_tabungan,
+            @Field("frekuensi") int frekuensi
     );
 }

@@ -45,6 +45,7 @@ public class HomeActivity extends AppCompatActivity {
     private Button mAturMakan;
     private Button mKeluar;
     private Button mEditProfil;
+    private Button mTambahBudget;
 
     private String nEmail;
     private Bundle nBundle;
@@ -60,10 +61,10 @@ public class HomeActivity extends AppCompatActivity {
         mKeluar = (Button) findViewById(R.id.mKeluar);
         mNama = (TextView) findViewById(R.id.mNama);
         mEditProfil  = (Button) findViewById(R.id.btnEdit);
+        mTambahBudget = (Button) findViewById(R.id.btnBudget);
 
         nBundle=getIntent().getBundleExtra("login");
         nEmail= nBundle.getString("email");
-        Toast.makeText(HomeActivity.this, nEmail, Toast.LENGTH_SHORT).show();
 
         Retrofit.Builder builder = new Retrofit.Builder()
                 .baseUrl("https://nipunduit.000webhostapp.com/api/")
@@ -87,7 +88,7 @@ public class HomeActivity extends AppCompatActivity {
         mTampilPengeluaran.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(HomeActivity.this, ShowPengeluaranHariActivity.class);
+                Intent i = new Intent(HomeActivity.this, ShowPengeluaranBulanActivity.class);
                 Bundle mBundle = new Bundle();
                 mBundle.putString("email",nEmail);
                 i.putExtra("login",mBundle);
@@ -132,6 +133,17 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(HomeActivity.this, EditProfileActivity.class);
+                Bundle mBundle = new Bundle();
+                mBundle.putString("email",nEmail);
+                i.putExtra("login",mBundle);
+                startActivity(i);
+            }
+        });
+
+        mTambahBudget.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(HomeActivity.this, InfoKeuangan.class);
                 Bundle mBundle = new Bundle();
                 mBundle.putString("email",nEmail);
                 i.putExtra("login",mBundle);

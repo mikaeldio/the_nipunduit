@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 public class TambahPengeluaran extends AppCompatActivity {
 
@@ -27,7 +26,7 @@ public class TambahPengeluaran extends AppCompatActivity {
         nBundle=getIntent().getBundleExtra("login");
         nEmail= nBundle.getString("email");
 
-        mKeterangan=(EditText)findViewById(R.id.mKeterangan);
+        mKeterangan=(EditText)findViewById(R.id.mDay);
         mJumlah=(EditText)findViewById(R.id.mJumlah);
         mBatal=(Button) findViewById(R.id.mBatal);
         mTambah=(Button) findViewById(R.id.mTambah);
