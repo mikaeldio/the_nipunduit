@@ -7,6 +7,9 @@ import android.support.v7.widget.RecyclerView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -65,10 +68,13 @@ public class ShowPengeluaranHariActivity extends AppCompatActivity {
 
     }
     private void setRecycleView(){
+        Gson gson = new GsonBuilder()
+                .setLenient()
+                .create();
         Retrofit.Builder builder=new Retrofit
                 .Builder()
                 .baseUrl("https://nipunduit.000webhostapp.com/api/")
-                .addConverterFactory(GsonConverterFactory.create());
+                .addConverterFactory(GsonConverterFactory.create(gson));
         Retrofit retrofit=builder.build();
         ApiClient apiClient=retrofit.create(ApiClient.class);
         Call<PengeluaranDAO.Value> studentDAOCall=apiClient.getPengeluaranHari(nEmail);
@@ -76,15 +82,17 @@ public class ShowPengeluaranHariActivity extends AppCompatActivity {
         studentDAOCall.enqueue(new Callback<PengeluaranDAO.Value>() {
             @Override
             public void onResponse(Call<PengeluaranDAO.Value> call, Response<PengeluaranDAO.Value> response) {
+                Toast.makeText(ShowPengeluaranHariActivity.this,"Done",Toast.LENGTH_SHORT).show();
                 recycleAdapterHari.notifyDataSetChanged();
                 recycleAdapterHari=new RecycleAdapterHari(ShowPengeluaranHariActivity.this, response.body().getResult());
                 recyclerView.setAdapter(recycleAdapterHari);
-                Toast.makeText(ShowPengeluaranHariActivity.this,"Welcome",Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onFailure(Call<PengeluaranDAO.Value> call, Throwable t) {
-                Toast.makeText(ShowPengeluaranHariActivity.this,"Network COnnection Error",Toast.LENGTH_SHORT).show();
+                Toast.makeText(ShowPengeluaranHariActivity.this,"Network Connection Error",Toast.LENGTH_SHORT).show();
+                Toast.makeText(ShowPengeluaranHariActivity.this,t.toString(),Toast.LENGTH_SHORT).show();
+                t.printStackTrace();
             }
         });
     }

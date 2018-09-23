@@ -88,7 +88,7 @@ public class HomeActivity extends AppCompatActivity {
         mTampilPengeluaran.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(HomeActivity.this, ShowPengeluaranBulanActivity.class);
+                Intent i = new Intent(HomeActivity.this, ShowPengeluaranHariActivity.class);
                 Bundle mBundle = new Bundle();
                 mBundle.putString("email",nEmail);
                 i.putExtra("login",mBundle);
