@@ -14,7 +14,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/mDay"
+            android:id="@+id/mKeterangan"
             android:layout_width="296dp"
             android:layout_height="wrap_content"
             android:text="Tanggal:" />

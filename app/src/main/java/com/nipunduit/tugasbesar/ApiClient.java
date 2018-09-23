@@ -28,6 +28,9 @@ public interface ApiClient {
     @GET("view-profil.php")
     Call<UserDAO> getProfil(@Query("email") String email);
 
+    @GET("view-hari.php")
+    Call<PengeluaranDAO.Value> getPengeluaranHari(@Query("email") String email);
+
     @POST("edit-profil.php")
     @FormUrlEncoded
     Call<UserDAO> editUser(
@@ -45,5 +48,15 @@ public interface ApiClient {
             @Field("budget_bulanan") int budget_bulanan,
             @Field("target_tabungan") int target_tabungan,
             @Field("frekuensi") int frekuensi
+    );
+
+    //CRUD untuk tambah pengeluaran
+    @POST("add-pengeluaran.php")
+    @FormUrlEncoded
+    Call<PengeluaranDAO> addPengeluaran(
+            @Field("email") String email,
+            @Field("keterangan") String keterangan,
+            @Field("nominal") int nominal,
+            @Field("tanggal") String tanggal
     );
 }

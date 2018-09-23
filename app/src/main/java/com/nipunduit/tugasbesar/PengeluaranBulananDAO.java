@@ -4,14 +4,34 @@ import java.util.Date;
 import com.orm.SugarRecord;
 
 public class PengeluaranBulananDAO extends SugarRecord{
-    Date Tanggal;
+    String Tanggal;
     Integer Jumlah;
 
-    public Date getTanggal() {
+    //cek response jeson
+    String error;
+    String error_msg;
+
+    public String getError() {
+        return error;
+    }
+
+    public void setError(String error) {
+        this.error = error;
+    }
+
+    public String getError_msg() {
+        return error_msg;
+    }
+
+    public void setError_msg(String error_msg) {
+        this.error_msg = error_msg;
+    }
+
+    public String getTanggal() {
         return Tanggal;
     }
 
-    public void setTanggal(Date tanggal) {
+    public void setTanggal(String tanggal) {
         Tanggal = tanggal;
     }
 
@@ -23,7 +43,7 @@ public class PengeluaranBulananDAO extends SugarRecord{
         Jumlah = jumlah;
     }
 
-    public PengeluaranBulananDAO(Date tanggal, Integer jumlah) {
+    public PengeluaranBulananDAO(String tanggal, Integer jumlah) {
 
         Tanggal = tanggal;
         Jumlah = jumlah;

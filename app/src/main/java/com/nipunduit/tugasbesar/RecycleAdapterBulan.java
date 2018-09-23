@@ -22,7 +22,7 @@ public class RecycleAdapterBulan extends RecyclerView.Adapter<RecycleAdapterBula
 
         public MyViewHolder(@NonNull View itemView){
             super(itemView);
-            mKeterangan=itemView.findViewById(R.id.mDay);
+            mKeterangan=itemView.findViewById(R.id.mKeterangan);
             mJumlah=itemView.findViewById(R.id.mJumlah);
         }
     }

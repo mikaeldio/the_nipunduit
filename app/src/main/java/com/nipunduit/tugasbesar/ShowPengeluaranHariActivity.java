@@ -5,12 +5,19 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ShowPengeluaranHariActivity extends AppCompatActivity {
     private List<PengeluaranDAO> mListPengeluaranHarian = new ArrayList<>();
@@ -38,13 +45,15 @@ public class ShowPengeluaranHariActivity extends AppCompatActivity {
         //<===
 
         mTotal=(TextView) findViewById(R.id.mTotal);
+
         recyclerView = findViewById(R.id.recycler_view_hari);
         mDate =(TextView) findViewById(R.id.mDate);
-        recycleAdapterHari = new RecycleAdapterHari(mListPengeluaranHarian);
+        recycleAdapterHari = new RecycleAdapterHari(this, mListPengeluaranHarian);
         layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);
-        setRecycleView();
+        recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(recycleAdapterHari);
+        setRecycleView();
 
         for(int i=0; i<mListPengeluaranHarian.size(); i++)
         {
@@ -55,13 +64,28 @@ public class ShowPengeluaranHariActivity extends AppCompatActivity {
         mDate.setText(formattedDate);
 
     }
-
     private void setRecycleView(){
-        List<PengeluaranDAO> mList;
+        Retrofit.Builder builder=new Retrofit
+                .Builder()
+                .baseUrl("https://nipunduit.000webhostapp.com/api/")
+                .addConverterFactory(GsonConverterFactory.create());
+        Retrofit retrofit=builder.build();
+        ApiClient apiClient=retrofit.create(ApiClient.class);
+        Call<PengeluaranDAO.Value> studentDAOCall=apiClient.getPengeluaranHari(nEmail);
 
-        mList= PengeluaranDAO.listAll(PengeluaranDAO.class);
+        studentDAOCall.enqueue(new Callback<PengeluaranDAO.Value>() {
+            @Override
+            public void onResponse(Call<PengeluaranDAO.Value> call, Response<PengeluaranDAO.Value> response) {
+                recycleAdapterHari.notifyDataSetChanged();
+                recycleAdapterHari=new RecycleAdapterHari(ShowPengeluaranHariActivity.this, response.body().getResult());
+                recyclerView.setAdapter(recycleAdapterHari);
+                Toast.makeText(ShowPengeluaranHariActivity.this,"Welcome",Toast.LENGTH_SHORT).show();
+            }
 
-        mListPengeluaranHarian.addAll(mList);
-        recycleAdapterHari.notifyDataSetChanged();
+            @Override
+            public void onFailure(Call<PengeluaranDAO.Value> call, Throwable t) {
+                Toast.makeText(ShowPengeluaranHariActivity.this,"Network COnnection Error",Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }

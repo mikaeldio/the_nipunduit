@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
     public void startIntent(){
         Intent intent = new Intent(MainActivity.this, HomeActivity.class);
         Bundle mBundle = new Bundle();
-        mBundle.putString("email",mEmail.getText().toString());
+        mBundle.putString("email",(mEmail.getText().toString()));
         mBundle.putString("password",mPassword.getText().toString());
         intent.putExtra("login",mBundle);
         startActivity(intent);

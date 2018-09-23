@@ -75,7 +75,7 @@ public class HomeActivity extends AppCompatActivity {
         userDAOCall.enqueue(new Callback<UserDAO>() {
             @Override
             public void onResponse(Call<UserDAO> call, Response<UserDAO> response) {
-                Toast.makeText(HomeActivity.this, "Loading user data", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(HomeActivity.this, "Loading user data", Toast.LENGTH_SHORT).show();
                 UserDAO user = response.body();
                 mNama.setText("Selamat datang, "+user.getNama());
             }
