@@ -1,14 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.nipunduit.tugasbesar">
-
+    <uses-permission android:name="android.permission.INTERNET"/>
     <application
+        android:name="com.orm.SugarApp"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:icon="@drawable/thenipunduit"
+        android:label="THE NIPUNDUIT"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <meta-data
+            android:name="DATABASE"
+            android:value="nipunduit.db" />
+        <meta-data
+            android:name="VERSION"
+            android:value="2.0" />
+        <meta-data
+            android:name="QUERY_LOG"
+            android:value="TRUE" />
+        <meta-data
+            android:name="DOMAIN_PACKAGE_NAME"
+            android:value="com.nipunduit.tugasbesar" />
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,9 +36,11 @@
             android:name=".HomeActivity"
             android:label="@string/title_activity_home"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Pengeluaran_Harian" />
+        <activity android:name=".AturJamMakan" />
         <activity android:name=".KeuPerbulanActivity" />
-        <activity android:name=".TambahPengeluaran"></activity>
+        <activity android:name=".TambahPengeluaran" />
+        <activity android:name=".ShowPengeluaranHariActivity"/>
+        <activity android:name=".EditProfileActivity"/>
     </application>
 
 </manifest>

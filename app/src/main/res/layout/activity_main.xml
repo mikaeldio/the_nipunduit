@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
     tools:context=".MainActivity">
 
     <TextView
@@ -13,22 +14,24 @@
         android:layout_marginBottom="8dp"
         android:layout_marginTop="8dp"
         android:text="NIPUNDUIT"
+        android:textColor="#f1f1f1"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.151" />
+        app:layout_constraintVertical_bias="0.133" />
 
     <EditText
-        android:id="@+id/mUsername"
+        android:id="@+id/mEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="28dp"
         android:layout_marginTop="8dp"
         android:ems="10"
-        android:hint="Username"
+        android:hint="Email"
         android:inputType="textPersonName"
+        android:textColor="#f1f1f1"
         app:layout_constraintBottom_toTopOf="@+id/mPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
@@ -44,6 +47,7 @@
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword"
+        android:textColor="#f1f1f1"
         app:layout_constraintBottom_toTopOf="@+id/mLogin_login"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
@@ -55,36 +59,58 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="172dp"
         android:text="LOGIN"
+        android:textColor="#f1f1f1"
+        android:background="#f9c404"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/mGuest"
-        android:layout_width="218dp"
+        android:layout_width="222dp"
         android:layout_height="29dp"
         android:layout_marginBottom="16dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:text="Belum punya akun?"
+        android:textColor="#f1f1f1"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/mDone"
+        app:layout_constraintHorizontal_bias="0.916"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mLogin_login"
-        app:layout_constraintVertical_bias="0.915" />
+        app:layout_constraintVertical_bias="0.84" />
 
     <Button
         android:id="@+id/mDone"
-        android:layout_width="95dp"
-        android:layout_height="wrap_content"
+        android:layout_width="73dp"
+        android:layout_height="38dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginEnd="28dp"
+        android:layout_marginEnd="40dp"
         android:layout_marginTop="8dp"
+        android:background="#ff6600"
         android:text="DAFTAR"
+        android:textColor="#f1f1f1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mLogin_login"
-        app:layout_constraintVertical_bias="0.925" />
+        app:layout_constraintVertical_bias="0.824" />
+    <at.rufuszhu.ui.PlayButtonAnimation
+        android:id="@+id/playButtonAnimation"
+        android:layout_width="128dp"
+        android:layout_height="128dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/ic_menu_gallery"
+        app:cb_color="#6cecce"
+        app:cb_pressedRingWidth="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
 </android.support.constraint.ConstraintLayout>

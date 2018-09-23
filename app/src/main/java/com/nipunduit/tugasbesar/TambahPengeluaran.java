@@ -10,15 +10,22 @@ import android.widget.TextView;
 
 public class TambahPengeluaran extends AppCompatActivity {
 
-    private TextView mKeterangan;
-    private TextView mJumlah;
+    private EditText mKeterangan;
+    private EditText mJumlah;
     private Button mBatal;
     private Button mTambah;
+    PengeluaranDAO pengeluaranDAO = new PengeluaranDAO();
+    private String nEmail;
+
+    private Bundle nBundle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tambah_pengeluaran);
+
+        nBundle=getIntent().getBundleExtra("login");
+        nEmail= nBundle.getString("email");
 
         mKeterangan=(EditText)findViewById(R.id.mKeterangan);
         mJumlah=(EditText)findViewById(R.id.mJumlah);
@@ -35,7 +42,11 @@ public class TambahPengeluaran extends AppCompatActivity {
         mTambah.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent (TambahPengeluaran.this,HomeActivity.class);
+                String value= mJumlah.getText().toString();
+                int finalValue=Integer.parseInt(value);
+                pengeluaranDAO = new PengeluaranDAO(mKeterangan.getText().toString(),finalValue);
+                pengeluaranDAO.save();
+                Intent i = new Intent (TambahPengeluaran.this,ShowPengeluaranHariActivity.class);
                 startActivity(i);
             }
         });

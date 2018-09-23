@@ -13,14 +13,25 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import android.app.Fragment;
+
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import org.json.JSONObject;
 import org.w3c.dom.Text;
-//tesjose
 
-public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
+//tesjose
+public class HomeActivity extends AppCompatActivity {
 
     private TextView mNama;
     private TextView mTotalBudget;
@@ -33,23 +44,53 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     private Button mTampilPengeluaran;
     private Button mAturMakan;
     private Button mKeluar;
+    private Button mEditProfil;
+
+    private String nEmail;
+    private Bundle nBundle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
-        mTambahPengeluaran=(Button)findViewById(R.id.mTambah);
-        mTampilPengeluaran=(Button)findViewById(R.id.mTampil);
-        mAturMakan=(Button)findViewById(R.id.mJamMakan);
-        mKeluar=(Button)findViewById(R.id.mKeluar);
+        mTambahPengeluaran = (Button) findViewById(R.id.mTambah);
+        mTampilPengeluaran = (Button) findViewById(R.id.mTampil);
+        mAturMakan = (Button) findViewById(R.id.mJamMakan);
+        mKeluar = (Button) findViewById(R.id.mKeluar);
+        mNama = (TextView) findViewById(R.id.mNama);
+        mEditProfil  = (Button) findViewById(R.id.btnEdit);
+
+        nBundle=getIntent().getBundleExtra("login");
+        nEmail= nBundle.getString("email");
+        Toast.makeText(HomeActivity.this, nEmail, Toast.LENGTH_SHORT).show();
+
+        Retrofit.Builder builder = new Retrofit.Builder()
+                .baseUrl("https://nipunduit.000webhostapp.com/api/")
+                .addConverterFactory(GsonConverterFactory.create());
+        Retrofit retrofit=builder.build();
+        ApiClient apiClient=retrofit.create(ApiClient.class);
+        Call<UserDAO> userDAOCall=apiClient.getProfil(nEmail);
+        userDAOCall.enqueue(new Callback<UserDAO>() {
+            @Override
+            public void onResponse(Call<UserDAO> call, Response<UserDAO> response) {
+                Toast.makeText(HomeActivity.this, "Loading user data", Toast.LENGTH_SHORT).show();
+                UserDAO user = response.body();
+                mNama.setText("Selamat datang, "+user.getNama());
+            }
+            @Override
+            public void onFailure(Call<UserDAO> call, Throwable t) {
+                Toast.makeText(HomeActivity.this, "Tidak bisa mengambil data user", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         mTampilPengeluaran.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(HomeActivity.this,Pengeluaran_Harian.class);
+                Intent i = new Intent(HomeActivity.this, ShowPengeluaranHariActivity.class);
+                Bundle mBundle = new Bundle();
+                mBundle.putString("email",nEmail);
+                i.putExtra("login",mBundle);
                 startActivity(i);
             }
         });
@@ -57,7 +98,10 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         mTambahPengeluaran.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(HomeActivity.this,TambahPengeluaran.class);
+                Intent i = new Intent(HomeActivity.this, TambahPengeluaran.class);
+                Bundle mBundle = new Bundle();
+                mBundle.putString("email",nEmail);
+                i.putExtra("login",mBundle);
                 startActivity(i);
             }
         });
@@ -65,7 +109,10 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         mAturMakan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(HomeActivity.this,TambahPengeluaran.class);
+                Intent i = new Intent(HomeActivity.this, AturJamMakan.class);
+                Bundle mBundle = new Bundle();
+                mBundle.putString("email",nEmail);
+                i.putExtra("login",mBundle);
                 startActivity(i);
             }
         });
@@ -73,86 +120,24 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         mKeluar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(HomeActivity.this,MainActivity.class);
+                Intent i = new Intent(HomeActivity.this, MainActivity.class);
+                Bundle mBundle = new Bundle();
+                mBundle.putString("email",nEmail);
+                i.putExtra("login",mBundle);
                 startActivity(i);
             }
         });
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        mEditProfil.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+            public void onClick(View v) {
+                Intent i = new Intent(HomeActivity.this, EditProfileActivity.class);
+                Bundle mBundle = new Bundle();
+                mBundle.putString("email",nEmail);
+                i.putExtra("login",mBundle);
+                startActivity(i);
             }
         });
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
-
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
     }
 
-    @Override
-    public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.home, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-       /* if (id == R.id.action_settings) {
-            return true;
-        }*/
-
-        return super.onOptionsItemSelected(item);
-    }
-
-    @SuppressWarnings("StatementWithEmptyBody")
-    @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
-        int id = item.getItemId();
-
-        if (id == R.id.nav_home) {
-            Intent i = new Intent(getApplicationContext(),HomeActivity.class);
-            startActivity(i);
-        } else if (id == R.id.nav_keuperbulan) {
-            Intent i = new Intent(getApplicationContext(),MainActivity.class);
-            startActivity(i);
-        } else if (id == R.id.nav_tambahpengeluaran) {
-
-        }// else if (id == R.id.nav_manage) {
-
-        //} else if (id == R.id.nav_share) {
-
-       // } else if (id == R.id.nav_send) {
-
-        //}
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
-    }
 }

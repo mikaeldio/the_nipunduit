@@ -16,12 +16,16 @@
             android:id="@+id/nav_tambahpengeluaran"
             android:icon="@drawable/ic_add"
             android:title="Tambah Pengeluaran"/>
+        <item
+            android:id="@+id/nav_infokeuangan"
+            android:icon="@drawable/ic_money"
+            android:title="Info Keuangan"/>
     </group>
 
     <item android:title="Account">
         <menu>
             <item
-                android:id="@+id/nav_share"
+                android:id="@+id/nav_editProfile"
                 android:icon="@drawable/ic_menu_manage"
                 android:title="Edit Profile" />
         </menu>
