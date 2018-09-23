@@ -101,11 +101,8 @@
         android:id="@+id/btnEdit"
         android:layout_width="100dp"
         android:layout_height="50dp"
-<<<<<<< HEAD
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-=======
->>>>>>> 0c152537ad977d02d61b3720f4496fea75603f56
         android:background="#ffbb00"
         android:text="EDIT AKUN"
         android:textColor="#f1f1f1"
