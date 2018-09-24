@@ -1,10 +1,15 @@
 package com.nipunduit.tugasbesar;
 
 import java.util.Date;
+
+import com.google.gson.annotations.SerializedName;
 import com.orm.SugarRecord;
 
 public class PengeluaranBulananDAO extends SugarRecord{
+
+    @SerializedName("tanggal")
     String Tanggal;
+    @SerializedName("totalPengeluaran_perhari")
     Integer Jumlah;
 
     //cek response jeson
@@ -49,7 +54,11 @@ public class PengeluaranBulananDAO extends SugarRecord{
         Jumlah = jumlah;
     }
 
-    public PengeluaranBulananDAO() {
-
+    @Override
+    public String toString() {
+        return "PengeluaranDAO{" +
+                "Keterangan='" + Tanggal + '\'' +
+                ", Jumlah=" + Jumlah +
+                '}';
     }
 }

@@ -32,7 +32,7 @@ public class ShowPengeluaranHariActivity extends AppCompatActivity {
     private RecyclerView.LayoutManager layoutManager;
     private TextView mTotal,mDate;
     private Integer totalPrice = 0;
-    private String nEmail;
+    private String nEmail,nTanggal;
 
     private Bundle nBundle;
 
@@ -53,7 +53,7 @@ public class ShowPengeluaranHariActivity extends AppCompatActivity {
         mTotal=(TextView) findViewById(R.id.mTotal);
         mDate =(TextView) findViewById(R.id.mDate);
 
-        mDate.setText(formattedDate);
+        mDate.setText(nTanggal);
         //REcycler
         mListPengeluaranHarian = new ArrayList<>();
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view_hari);
@@ -87,7 +87,7 @@ public class ShowPengeluaranHariActivity extends AppCompatActivity {
                     totalPrice +=  mListPengeluaranHarian.get(i).getJumlah();
                 }
                 String t = totalPrice.toString();
-                mTotal.setText(t);
+               mTotal.setText(t);
             }
 
             @Override
@@ -104,7 +104,7 @@ public class ShowPengeluaranHariActivity extends AppCompatActivity {
         }
         String t = totalPrice.toString();
         mTotal.setText(t);
-        mDate.setText(formattedDate);
+        mDate.setText(nTanggal);
 
     }
 

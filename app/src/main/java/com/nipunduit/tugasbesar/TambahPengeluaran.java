@@ -8,6 +8,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -81,6 +84,8 @@ public class TambahPengeluaran extends AppCompatActivity {
                             }
                             else{
                                 Toast.makeText(TambahPengeluaran.this, "Penambahan berhasil", Toast.LENGTH_SHORT).show();
+                                //Intent i = new Intent(TambahPengeluaran.this,ShowPengeluaranHariActivity.class);
+                                //startActivity(i);
                             }
                         }
                         else{
@@ -95,8 +100,8 @@ public class TambahPengeluaran extends AppCompatActivity {
                     }
 
                 });
-                //Intent i = new Intent (TambahPengeluaran.this,ShowPengeluaranHariActivity.class);
-                //startActivity(i);
+                Intent i = new Intent (TambahPengeluaran.this,ShowPengeluaranHariActivity.class);
+                startActivity(i);
             }
         });
     }
