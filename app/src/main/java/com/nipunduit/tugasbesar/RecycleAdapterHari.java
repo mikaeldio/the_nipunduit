@@ -9,53 +9,49 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class RecycleAdapterHari extends RecyclerView.Adapter<RecycleAdapterHari.MyViewHolder> {
 
-    Context context;
-    List<PengeluaranDAO> result;
-
+    private Context context;
+    private List<PengeluaranDAO> result;
     public RecycleAdapterHari(Context context, List<PengeluaranDAO> result){
-        this.context = context;
+        this.context=context;
         this.result=result;
     }
 
-    public void setPengeluaranlist(List<PengeluaranDAO> pengeluaranlist){
-        this.result = pengeluaranlist;
-        notifyDataSetChanged();
-    }
-
+    @NonNull
     @Override
-    public MyViewHolder onCreateViewHolder( ViewGroup viewGroup,int i){
+    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup,int i){
         View v = LayoutInflater.from(context).inflate(R.layout.recycle_pengeluaran_harian,viewGroup,false);
-        return new MyViewHolder(v);
+        final MyViewHolder holder=new MyViewHolder(v);
+
+        return holder;
     }
 
     @Override
-    public void onBindViewHolder(MyViewHolder myViewHolder, int i){
-        PengeluaranDAO peng= result.get(i);
-        String duit= new Integer(peng.getJumlah()).toString();
-        myViewHolder.mKeterangan.setText("Keterangan: "+peng.getKeterangan());
-        myViewHolder.mJumlah.setText("Jumlah: "+duit);
+    public void onBindViewHolder(@NonNull MyViewHolder myViewHolder, int i){
+        PengeluaranDAO mhs= result.get(i);
+        myViewHolder.mKeterangan.setText(mhs.getKeterangan());
+        myViewHolder.mJumlah.setText(mhs.getJumlah());
     }
 
     @Override
-    public int getItemCount() {
-        if (result != null) {
-            return result.size();
-        }
-        return 0;
-    }
+    public int getItemCount(){return result.size();}
 
-    public class MyViewHolder extends RecyclerView.ViewHolder{
+
+    public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         public TextView mKeterangan, mJumlah;
 
         public MyViewHolder(@NonNull View itemView){
             super(itemView);
             mKeterangan=itemView.findViewById(R.id.mKeterangan);
             mJumlah=itemView.findViewById(R.id.mJumlah);
+        }
+
+        @Override
+        public void onClick(View view){
+            Toast.makeText(context,"Hey You Clicked on Me", Toast.LENGTH_SHORT).show();
         }
 
     }
