@@ -34,7 +34,7 @@ public interface ApiClient {
     Call<InfoKeuanganDAO> getInfoKeuangan(@Query("email") String email);
 
     @GET("view-hari.php")
-    Call<PengeluaranDAO.Value> getPengeluaranHari(@Query("email") String email);
+    Call<List<PengeluaranDAO>> getPengeluaranHari(@Query("email") String email);
 
     @POST("edit-profil.php")
     @FormUrlEncoded

@@ -1,12 +1,15 @@
 package com.nipunduit.tugasbesar;
 
+import com.google.gson.annotations.SerializedName;
 import com.orm.SugarRecord;
 
 import java.util.List;
 
 public class PengeluaranDAO extends SugarRecord {
 
+    @SerializedName("keterangan")
     String Keterangan;
+    @SerializedName("nominal")
     Integer Jumlah;
     String email;
 
@@ -56,6 +59,18 @@ public class PengeluaranDAO extends SugarRecord {
 
     public Integer getJumlah() {
         return Jumlah;
+    }
+
+    public String getJumlahS() {
+        return Jumlah.toString();
+    }
+
+    @Override
+    public String toString() {
+        return "PengeluaranDAO{" +
+                "Keterangan='" + Keterangan + '\'' +
+                ", Jumlah=" + Jumlah +
+                '}';
     }
 
     public class Value{

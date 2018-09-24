@@ -22,11 +22,7 @@
         android:layout_below="@+id/ProfilePic"
         android:layout_centerHorizontal="true"
         android:text="."
-        android:textColor="#f1f1f1" />
-
-
-
-
+        android:textColor="#f1f1f1"/>
 
 
     <TextView
@@ -46,7 +42,7 @@
         android:layout_alignStart="@+id/mTambah"
         android:layout_marginBottom="230dp"
         android:text="Target Tabungan"
-        android:textColor="#f1f1f1" />
+        android:textColor="#f1f1f1"/>
 
     <TextView
         android:id="@+id/mBB"
@@ -83,7 +79,7 @@
         android:layout_alignStart="@+id/mTambah"
         android:layout_marginTop="230dp"
         android:text="Budget Bulan ini"
-        android:textColor="#f1f1f1" />
+        android:textColor="#f1f1f1"/>
 
     <Button
         android:id="@+id/mKeluar"
@@ -99,10 +95,6 @@
 
     <Button
         android:id="@+id/btnEdit"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
         android:background="#ffbb00"
         android:text="EDIT AKUN"
         android:textColor="#f1f1f1"
@@ -128,7 +120,7 @@
         android:layout_alignStart="@+id/mTampil"
         android:layout_alignTop="@+id/btnBudget"
         android:background="#ffbb00"
-        android:text="Atur Jam Makan"
+        android:text="ATUR JAM MAKAN"
         android:textColor="#f1f1f1"
         android:textSize="12dp" />
 
