@@ -30,9 +30,6 @@ public interface ApiClient {
     @GET("view-profil.php")
     Call<UserDAO> getProfil(@Query("email") String email);
 
-    @GET("view-home.php")
-    Call<InfoKeuanganDAO> getInfoKeuangan(@Query("email") String email);
-
     @GET("view-hari.php")
     Call<List<PengeluaranDAO>> getPengeluaranHari(@Query("email") String email);
 
