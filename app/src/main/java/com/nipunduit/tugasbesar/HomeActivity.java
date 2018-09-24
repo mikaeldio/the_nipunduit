@@ -34,11 +34,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class HomeActivity extends AppCompatActivity {
 
     private TextView mNama;
-    private TextView mTotalBudget;
-    private TextView mSisaBudget;
+    private TextView mBudgetBulanan;
     private TextView mTargetTabungan;
-    private TextView mBudgetSekarang;
-    private TextView mSisaBudgetSekarang;
 
     private Button mTambahPengeluaran;
     private Button mTampilPengeluaran;
@@ -62,6 +59,8 @@ public class HomeActivity extends AppCompatActivity {
         mNama = (TextView) findViewById(R.id.mNama);
         mEditProfil  = (Button) findViewById(R.id.btnEdit);
         mTambahBudget = (Button) findViewById(R.id.btnBudget);
+        mBudgetBulanan=(TextView)findViewById(R.id.mBB);
+        mTargetTabungan=(TextView)findViewById(R.id.mTT);
 
         nBundle=getIntent().getBundleExtra("login");
         nEmail= nBundle.getString("email");
@@ -81,6 +80,28 @@ public class HomeActivity extends AppCompatActivity {
             }
             @Override
             public void onFailure(Call<UserDAO> call, Throwable t) {
+                Toast.makeText(HomeActivity.this, "Tidak bisa mengambil data user", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        //untuk nampilin view di home (BB dan TT)
+        Retrofit.Builder builderBudget = new Retrofit.Builder()
+                .baseUrl("https://nipunduit.000webhostapp.com/api/")
+                .addConverterFactory(GsonConverterFactory.create());
+        Retrofit retrofitBudget=builderBudget.build();
+        ApiClient apiClientBudget=retrofitBudget.create(ApiClient.class);
+        Call<InfoKeuanganDAO> infoKeuanganDAOCall=apiClientBudget.getInfoKeuangan(nEmail);
+        infoKeuanganDAOCall.enqueue(new Callback<InfoKeuanganDAO>() {
+            @Override
+            public void onResponse(Call<InfoKeuanganDAO> call, Response<InfoKeuanganDAO> response) {
+                //Toast.makeText(HomeActivity.this, "Loading user data", Toast.LENGTH_SHORT).show();
+                InfoKeuanganDAO info = response.body();
+                mBudgetBulanan.setText(info.getBudget());
+                mTargetTabungan.setText(info.getTabungan());
+
+            }
+            @Override
+            public void onFailure(Call<InfoKeuanganDAO> call, Throwable t) {
                 Toast.makeText(HomeActivity.this, "Tidak bisa mengambil data user", Toast.LENGTH_SHORT).show();
             }
         });
