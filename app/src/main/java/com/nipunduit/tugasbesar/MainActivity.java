@@ -16,7 +16,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 //import at.rufuszhu.ui.PlayButtonAnimation;
 
-public class MainActivity extends AppCompatActivity {
+public class
+MainActivity extends AppCompatActivity {
 //test lupuz;
 // PlayButtonAnimation btn;
     private Button mLogin;
