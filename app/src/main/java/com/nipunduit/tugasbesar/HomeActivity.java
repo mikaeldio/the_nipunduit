@@ -85,32 +85,6 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-<<<<<<< HEAD
-=======
-        //untuk nampilin view di home (BB dan TT)
-        Retrofit.Builder builderBudget = new Retrofit.Builder()
-                .baseUrl("https://nipunduit.000webhostapp.com/api/")
-                .addConverterFactory(GsonConverterFactory.create());
-        Retrofit retrofitBudget=builderBudget.build();
-        ApiClient apiClientBudget=retrofitBudget.create(ApiClient.class);
-        Call<InfoKeuanganDAO> infoKeuanganDAOCall=apiClientBudget.getInfoKeuangan(nEmail);
-        infoKeuanganDAOCall.enqueue(new Callback<InfoKeuanganDAO>() {
-            @Override
-            public void onResponse(Call<InfoKeuanganDAO> call, Response<InfoKeuanganDAO> response) {
-                //Toast.makeText(HomeActivity.this, "Loading user data", Toast.LENGTH_SHORT).show();
-                InfoKeuanganDAO info = response.body();
-                mBudgetBulanan.setText(new Integer(info.budget_bulanan).toString());
-                mTargetTabungan.setText(new Integer(info.target_tabungan).toString());
-
-            }
-            @Override
-            public void onFailure(Call<InfoKeuanganDAO> call, Throwable t) {
-                Toast.makeText(HomeActivity.this, "Tidak bisa mengambil data user", Toast.LENGTH_SHORT).show();
-                t.printStackTrace();
-            }
-        });
-
->>>>>>> 60a8ef80ecd86764f3416e262b990b61f0608204
         mTampilPengeluaran.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

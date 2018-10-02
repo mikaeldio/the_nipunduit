@@ -1,75 +1,49 @@
 package com.nipunduit.tugasbesar;
 
-import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.List;
 
 public class RecycleAdapterBulan extends RecyclerView.Adapter<RecycleAdapterBulan.MyViewHolder> {
 
-    private Context context;
-    private Button mDetail;
-    private List<PengeluaranBulananDAO> result;
-
-    public RecycleAdapterBulan(Context context, List<PengeluaranBulananDAO> result){
-        this.context = context;
-        this.result=result;
+    private List<PengeluaranBulananDAO> mList;
+    public RecycleAdapterBulan(List<PengeluaranBulananDAO> mList)
+    {
+        this.mList=mList;
     }
 
-    public void setPengeluaranBulanlist(List<PengeluaranBulananDAO> pengeluaranBulanlist){
-        this.result = pengeluaranBulanlist;
-        notifyDataSetChanged();
+    public class MyViewHolder extends RecyclerView.ViewHolder{
+        public TextView mKeterangan, mJumlah;
+
+        public MyViewHolder(@NonNull View itemView){
+            super(itemView);
+            mKeterangan=itemView.findViewById(R.id.mKeterangan);
+            mJumlah=itemView.findViewById(R.id.mJumlah);
+        }
     }
 
+
+    @NonNull
     @Override
-    public RecycleAdapterBulan.MyViewHolder onCreateViewHolder(ViewGroup viewGroup, int i){
-        View v = LayoutInflater.from(context).inflate(R.layout.recycle_pengeluaran_harian,viewGroup,false);
-        return new RecycleAdapterBulan.MyViewHolder(v);
+    public RecycleAdapterBulan.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType){
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycle_pengeluaran_bulan,parent,false);
+        return new MyViewHolder(itemView);
     }
 
     @Override
     public void onBindViewHolder(@NonNull RecycleAdapterBulan.MyViewHolder holder, int position){
-        PengeluaranBulananDAO pengeluaranBulananDAO= result.get(position);
-        final String nTanggal = pengeluaranBulananDAO.Tanggal;
-        //holder.mTanggal.setText("Tanggal\t:"+pengeluaranBulananDAO.Tanggal);
-       // holder.mJumlah.setText("Jumlah\t\t: Rp. "+(pengeluaranBulananDAO.Jumlah).toString());
-        mDetail.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(context, ShowPengeluaranBulanActivity.class);
-                Bundle mBundle = new Bundle();
-                mBundle.putString("tanggal", nTanggal);
-                i.putExtra("bTanggal",mBundle);
-                context.startActivity(i);
-            }
-        });
+        PengeluaranBulananDAO pengeluaranBulananDAO= mList.get(position);
+        holder.mKeterangan.setText("Tanggal\t:"+pengeluaranBulananDAO.Tanggal);
+        holder.mJumlah.setText("Jumlah\t\t: Rp. "+pengeluaranBulananDAO.Jumlah);
+
     }
 
     @Override
-    public int getItemCount() {
-        if (result != null) {
-            return result.size();
-        }
-        return 0;
-    }
-
-    public class MyViewHolder extends RecyclerView.ViewHolder{
-        public TextView mTanggal, mJumlah;
-
-        public MyViewHolder(@NonNull View itemView){
-            super(itemView);
-            mTanggal=itemView.findViewById(R.id.mTanggal);
-            mJumlah=itemView.findViewById(R.id.mJumlah);
-        }
-
-    }
+    public int getItemCount(){return mList.size();}
 
 }
