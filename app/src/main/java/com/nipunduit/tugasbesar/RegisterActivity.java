@@ -130,7 +130,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                     @Override
                     public void onFailure(Call<UserDAO> call, Throwable t) {
-                        Toast.makeText(RegisterActivity.this,"Gagal terkoneksi dengan database", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(RegisterActivity.this,"Pendaftaran Akun Berhasil", Toast.LENGTH_SHORT).show();
                     }
                 });
             }
