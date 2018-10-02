@@ -29,7 +29,7 @@ public class ShowPengeluaranHariActivity extends AppCompatActivity {
     private RecyclerView.LayoutManager layoutManager;
     private TextView mTotal,mDate;
     private Integer totalPrice = 0;
-    private String nEmail,nTanggal;
+    private String nEmail;
 
     private Bundle nBundle;
 
@@ -49,19 +49,11 @@ public class ShowPengeluaranHariActivity extends AppCompatActivity {
 
         mTotal=(TextView) findViewById(R.id.mTotal);
 
-<<<<<<< HEAD
         recyclerView = findViewById(R.id.recycler_view_hari);
         mDate =(TextView) findViewById(R.id.mDate);
         recycleAdapterHari = new RecycleAdapterHari(this, mListPengeluaranHarian);
         layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);
-=======
-        mDate.setText(nTanggal);
-        //REcycler
-        mListPengeluaranHarian = new ArrayList<>();
-        recyclerView = (RecyclerView) findViewById(R.id.recycler_view_hari);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
->>>>>>> 60a8ef80ecd86764f3416e262b990b61f0608204
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(recycleAdapterHari);
         setRecycleView();
@@ -92,17 +84,8 @@ public class ShowPengeluaranHariActivity extends AppCompatActivity {
             public void onResponse(Call<PengeluaranDAO.Value> call, Response<PengeluaranDAO.Value> response) {
                 Toast.makeText(ShowPengeluaranHariActivity.this,"Done",Toast.LENGTH_SHORT).show();
                 recycleAdapterHari.notifyDataSetChanged();
-<<<<<<< HEAD
                 recycleAdapterHari=new RecycleAdapterHari(ShowPengeluaranHariActivity.this, response.body().getResult());
                 recyclerView.setAdapter(recycleAdapterHari);
-=======
-                for(int i=0; i<mListPengeluaranHarian.size(); i++)
-                {
-                    totalPrice +=  mListPengeluaranHarian.get(i).getJumlah();
-                }
-                String t = totalPrice.toString();
-               mTotal.setText(t);
->>>>>>> 60a8ef80ecd86764f3416e262b990b61f0608204
             }
 
             @Override
@@ -112,17 +95,5 @@ public class ShowPengeluaranHariActivity extends AppCompatActivity {
                 t.printStackTrace();
             }
         });
-<<<<<<< HEAD
-=======
-
-        for(int i=0; i<mListPengeluaranHarian.size(); i++)
-        {
-            totalPrice +=  mListPengeluaranHarian.get(i).getJumlah();
-        }
-        String t = totalPrice.toString();
-        mTotal.setText(t);
-        mDate.setText(nTanggal);
-
->>>>>>> 60a8ef80ecd86764f3416e262b990b61f0608204
     }
 }

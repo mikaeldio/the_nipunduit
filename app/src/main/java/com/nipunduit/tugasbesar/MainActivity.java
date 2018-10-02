@@ -82,20 +82,8 @@ public class MainActivity extends AppCompatActivity {
             userDAOCall.enqueue(new Callback<UserDAO>() {
                 @Override
                 public void onResponse(Call<UserDAO> call, Response<UserDAO> response) {
-                    if(response.isSuccessful()){
-                        String error = response.body().getError();
-                        if(error.equals("true")){
-                            String error_message = response.body().getError_msg();
-                            Toast.makeText(MainActivity.this, error_message, Toast.LENGTH_SHORT).show();
-                        }
-                        else{
-                            Toast.makeText(MainActivity.this, "Login berhasil", Toast.LENGTH_SHORT).show();
-                            startIntent();
-                        }
-                    }
-                    else{
-                        Toast.makeText(MainActivity.this,"Login gagal", Toast.LENGTH_SHORT).show();
-                    }
+                    Toast.makeText(MainActivity.this, "Login  berhasil", Toast.LENGTH_SHORT).show();
+                    startIntent();
                 }
 
                 @Override

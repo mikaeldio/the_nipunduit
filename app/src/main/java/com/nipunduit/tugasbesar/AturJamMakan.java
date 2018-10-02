@@ -128,6 +128,7 @@ public class AturJamMakan extends AppCompatActivity {
                 savePreferences();
                 Toast.makeText(getApplicationContext(),"Jam Makan Berhasil Diatur...",Toast.LENGTH_SHORT).show();
 <<<<<<< HEAD
+<<<<<<< HEAD
                 Intent i = new Intent(AturJamMakan.this,HomeActivity.class);
                 startActivity(i);
 =======
@@ -137,6 +138,8 @@ public class AturJamMakan extends AppCompatActivity {
                 intent.putExtra("login",mBundle);
                 startActivity(intent);
 >>>>>>> parent of 6ed8ed9... Revert "Merge branch 'master' of https://github.com/mikaeldio/the_nipunduit"
+=======
+>>>>>>> parent of 2c420a8... Merge branch 'master' of https://github.com/mikaeldio/the_nipunduit
             }
         });
         Button btnbatal = (Button)findViewById(R.id.btnBatalJamMakan);
@@ -148,6 +151,7 @@ public class AturJamMakan extends AppCompatActivity {
                 time3.setText("");
                 Toast.makeText(getApplicationContext(),"Jam Makan Batal Diatur...",Toast.LENGTH_SHORT).show();
 <<<<<<< HEAD
+<<<<<<< HEAD
                 Intent i = new Intent(AturJamMakan.this,HomeActivity.class);
                 startActivity(i);
 =======
@@ -157,6 +161,9 @@ public class AturJamMakan extends AppCompatActivity {
                 intent.putExtra("login",mBundle);
                 startActivity(intent);
 >>>>>>> parent of 6ed8ed9... Revert "Merge branch 'master' of https://github.com/mikaeldio/the_nipunduit"
+=======
+
+>>>>>>> parent of 2c420a8... Merge branch 'master' of https://github.com/mikaeldio/the_nipunduit
             }
         });
         long msTime = System.currentTimeMillis();

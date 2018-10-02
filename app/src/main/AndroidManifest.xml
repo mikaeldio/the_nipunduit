@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.nipunduit.tugasbesar">
-
-    <uses-permission android:name="android.permission.INTERNET" />
-
+    <uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:name="com.orm.SugarApp"
         android:allowBackup="true"
@@ -41,10 +39,9 @@
         <activity android:name=".AturJamMakan" />
         <activity android:name=".KeuPerbulanActivity" />
         <activity android:name=".TambahPengeluaran" />
-        <activity android:name=".ShowPengeluaranHariActivity" />
-        <activity android:name=".ShowPengeluaranBulanActivity" />
-        <activity android:name=".EditProfileActivity" />
-        <activity android:name=".EditPengeluaranActivity"></activity>
+        <activity android:name=".ShowPengeluaranHariActivity"/>
+        <activity android:name=".ShowPengeluaranBulanActivity"/>
+        <activity android:name=".EditProfileActivity"/>
     </application>
 
 </manifest>

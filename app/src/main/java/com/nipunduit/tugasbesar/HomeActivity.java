@@ -86,6 +86,7 @@ public class HomeActivity extends AppCompatActivity {
         });
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         //untuk nampilin view di home (BB dan TT)
         Retrofit.Builder builderBudget = new Retrofit.Builder()
@@ -119,6 +120,8 @@ public class HomeActivity extends AppCompatActivity {
         });
 
 >>>>>>> 60a8ef80ecd86764f3416e262b990b61f0608204
+=======
+>>>>>>> parent of 2c420a8... Merge branch 'master' of https://github.com/mikaeldio/the_nipunduit
         mTampilPengeluaran.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

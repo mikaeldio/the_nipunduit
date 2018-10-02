@@ -8,9 +8,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -54,11 +51,8 @@ public class TambahPengeluaran extends AppCompatActivity {
         mBatal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
-                Bundle mBundle = new Bundle();
-                mBundle.putString("email",(nEmail));
-                intent.putExtra("login",mBundle);
-                startActivity(intent);
+                Intent i = new Intent (TambahPengeluaran.this,HomeActivity.class);
+                startActivity(i);
             }
         });
 
@@ -87,12 +81,16 @@ public class TambahPengeluaran extends AppCompatActivity {
                             }
                             else{
 <<<<<<< HEAD
+<<<<<<< HEAD
                                 Toast.makeText(TambahPengeluaran.this, "Penambahan berhasil", Toast.LENGTH_SHORT).show();
                                 //Intent i = new Intent(TambahPengeluaran.this,ShowPengeluaranHariActivity.class);
                                 //startActivity(i);
 =======
                              Toast.makeText(TambahPengeluaran.this, "Penambahan berhasil", Toast.LENGTH_SHORT).show();
 >>>>>>> parent of 6ed8ed9... Revert "Merge branch 'master' of https://github.com/mikaeldio/the_nipunduit"
+=======
+                                Toast.makeText(TambahPengeluaran.this, "Penambahan berhasil", Toast.LENGTH_SHORT).show();
+>>>>>>> parent of 2c420a8... Merge branch 'master' of https://github.com/mikaeldio/the_nipunduit
                             }
                         }
                         else{
@@ -108,6 +106,7 @@ public class TambahPengeluaran extends AppCompatActivity {
 
                 });
 <<<<<<< HEAD
+<<<<<<< HEAD
                 Intent i = new Intent (TambahPengeluaran.this,ShowPengeluaranHariActivity.class);
                 startActivity(i);
 =======
@@ -117,6 +116,10 @@ public class TambahPengeluaran extends AppCompatActivity {
                 intent.putExtra("login",mBundle);
                 startActivity(intent);
 >>>>>>> parent of 6ed8ed9... Revert "Merge branch 'master' of https://github.com/mikaeldio/the_nipunduit"
+=======
+                //Intent i = new Intent (TambahPengeluaran.this,ShowPengeluaranHariActivity.class);
+                //startActivity(i);
+>>>>>>> parent of 2c420a8... Merge branch 'master' of https://github.com/mikaeldio/the_nipunduit
             }
         });
     }
