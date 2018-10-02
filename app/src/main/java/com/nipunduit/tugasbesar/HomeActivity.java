@@ -99,13 +99,22 @@ public class HomeActivity extends AppCompatActivity {
             public void onResponse(Call<InfoKeuanganDAO> call, Response<InfoKeuanganDAO> response) {
                 //Toast.makeText(HomeActivity.this, "Loading user data", Toast.LENGTH_SHORT).show();
                 InfoKeuanganDAO info = response.body();
+<<<<<<< HEAD
                 mBudgetBulanan.setText(info.getBudget());
                 mTargetTabungan.setText(info.getTabungan());
+=======
+                mBudgetBulanan.setText(new Integer(info.budget_bulanan).toString());
+                mTargetTabungan.setText(new Integer(info.target_tabungan).toString());
+>>>>>>> parent of 6ed8ed9... Revert "Merge branch 'master' of https://github.com/mikaeldio/the_nipunduit"
 
             }
             @Override
             public void onFailure(Call<InfoKeuanganDAO> call, Throwable t) {
                 Toast.makeText(HomeActivity.this, "Tidak bisa mengambil data user", Toast.LENGTH_SHORT).show();
+<<<<<<< HEAD
+=======
+                t.printStackTrace();
+>>>>>>> parent of 6ed8ed9... Revert "Merge branch 'master' of https://github.com/mikaeldio/the_nipunduit"
             }
         });
 
