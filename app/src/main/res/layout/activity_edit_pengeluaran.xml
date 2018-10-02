@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context=".EditPengeluaranActivity">
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="317dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="37dp"
+        android:text="Edit Pengeluaran"
+        android:textAlignment="center"
+        android:textSize="25sp"
+        android:textColor="#f1f1f1"/>
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/mKeterangan"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="-132dp"
+        android:layout_marginStart="85dp"
+        android:text="Keterangan"
+        android:textColor="#f1f1f1"
+        android:textSize="15sp" />
+
+    <EditText
+        android:id="@+id/mKeterangan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="133dp"
+        android:ems="10"
+        android:hint="Keterangan"
+        android:inputType="textPersonName"
+        android:textColor="#f1f1f1" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/mJumlah"
+        android:layout_alignStart="@+id/textView8"
+        android:layout_marginBottom="-228dp"
+        android:text="Jumlah"
+        android:textColor="#f1f1f1"
+        android:textSize="15sp" />
+
+    <EditText
+        android:id="@+id/mJumlah"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/textView8"
+        android:layout_marginTop="228dp"
+        android:ems="10"
+        android:hint="Masukkan Nominal"
+        android:inputType="number"
+        android:textColor="#f1f1f1"/>
+
+    <Button
+        android:id="@+id/mTambah"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/mKeterangan"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="151dp"
+        android:background="#ff5500"
+        android:text="Edit"
+        android:textColor="#f1f1f1"
+        android:textSize="18dp"/>
+
+    <Button
+        android:id="@+id/mBatal"
+        android:layout_width="73dp"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/textView8"
+        android:layout_below="@+id/mTambah"
+        android:layout_marginTop="-199dp"
+        android:background="#ff0000"
+        android:textSize="18dp"
+        android:text="Batal"
+        android:textColor="#f1f1f1" />
+</RelativeLayout>
