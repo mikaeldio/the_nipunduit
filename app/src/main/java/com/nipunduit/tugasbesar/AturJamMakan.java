@@ -127,11 +127,8 @@ public class AturJamMakan extends AppCompatActivity {
 
                 savePreferences();
                 Toast.makeText(getApplicationContext(),"Jam Makan Berhasil Diatur...",Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
-                Bundle mBundle = new Bundle();
-                mBundle.putString("email",(nEmail));
-                intent.putExtra("login",mBundle);
-                startActivity(intent);
+                Intent i = new Intent(AturJamMakan.this,HomeActivity.class);
+                startActivity(i);
             }
         });
         Button btnbatal = (Button)findViewById(R.id.btnBatalJamMakan);
@@ -142,11 +139,8 @@ public class AturJamMakan extends AppCompatActivity {
                 time2.setText("");
                 time3.setText("");
                 Toast.makeText(getApplicationContext(),"Jam Makan Batal Diatur...",Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
-                Bundle mBundle = new Bundle();
-                mBundle.putString("email",(nEmail));
-                intent.putExtra("login",mBundle);
-                startActivity(intent);
+                Intent i = new Intent(AturJamMakan.this,HomeActivity.class);
+                startActivity(i);
             }
         });
         long msTime = System.currentTimeMillis();

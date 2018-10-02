@@ -99,14 +99,13 @@ public class HomeActivity extends AppCompatActivity {
             public void onResponse(Call<InfoKeuanganDAO> call, Response<InfoKeuanganDAO> response) {
                 //Toast.makeText(HomeActivity.this, "Loading user data", Toast.LENGTH_SHORT).show();
                 InfoKeuanganDAO info = response.body();
-                mBudgetBulanan.setText(new Integer(info.budget_bulanan).toString());
-                mTargetTabungan.setText(new Integer(info.target_tabungan).toString());
+                mBudgetBulanan.setText(info.getBudget());
+                mTargetTabungan.setText(info.getTabungan());
 
             }
             @Override
             public void onFailure(Call<InfoKeuanganDAO> call, Throwable t) {
                 Toast.makeText(HomeActivity.this, "Tidak bisa mengambil data user", Toast.LENGTH_SHORT).show();
-                t.printStackTrace();
             }
         });
 

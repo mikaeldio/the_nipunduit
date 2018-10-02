@@ -54,11 +54,8 @@ public class TambahPengeluaran extends AppCompatActivity {
         mBatal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
-                Bundle mBundle = new Bundle();
-                mBundle.putString("email",(nEmail));
-                intent.putExtra("login",mBundle);
-                startActivity(intent);
+                Intent i = new Intent (TambahPengeluaran.this,HomeActivity.class);
+                startActivity(i);
             }
         });
 
@@ -86,7 +83,9 @@ public class TambahPengeluaran extends AppCompatActivity {
                                 Toast.makeText(TambahPengeluaran.this, error_message, Toast.LENGTH_SHORT).show();
                             }
                             else{
-                             Toast.makeText(TambahPengeluaran.this, "Penambahan berhasil", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(TambahPengeluaran.this, "Penambahan berhasil", Toast.LENGTH_SHORT).show();
+                                //Intent i = new Intent(TambahPengeluaran.this,ShowPengeluaranHariActivity.class);
+                                //startActivity(i);
                             }
                         }
                         else{
@@ -101,11 +100,8 @@ public class TambahPengeluaran extends AppCompatActivity {
                     }
 
                 });
-                Intent intent = new Intent(getApplicationContext(), ShowPengeluaranHariActivity.class);
-                Bundle mBundle = new Bundle();
-                mBundle.putString("email",(nEmail));
-                intent.putExtra("login",mBundle);
-                startActivity(intent);
+                Intent i = new Intent (TambahPengeluaran.this,ShowPengeluaranHariActivity.class);
+                startActivity(i);
             }
         });
     }
