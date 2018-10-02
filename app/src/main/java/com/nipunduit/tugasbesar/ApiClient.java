@@ -30,11 +30,8 @@ public interface ApiClient {
     @GET("view-profil.php")
     Call<UserDAO> getProfil(@Query("email") String email);
 
-<<<<<<< HEAD
     @GET("view-hari.php")
     Call<PengeluaranDAO.Value> getPengeluaranHari(@Query("email") String email);
-=======
->>>>>>> 60a8ef80ecd86764f3416e262b990b61f0608204
 
     @POST("edit-profil.php")
     @FormUrlEncoded
@@ -55,46 +52,13 @@ public interface ApiClient {
             @Field("frekuensi") int frekuensi
     );
 
-    @GET("view-bulan.php")
-    Call<List<PengeluaranBulananDAO>> getPengeluaranBulan(
-            @Query("email") String email
-    );
-
-    @GET("view-home.php")
-    Call<InfoKeuanganDAO> getInfoKeuangan(@Query("email") String email);
-
-    //CRUD untuk tambah pengeluaran (sehari-hari)
+    //CRUD untuk tambah pengeluaran
     @POST("add-pengeluaran.php")
     @FormUrlEncoded
-    Call<PengeluaranDAO> addPengeluaran( //fungsi ini digunakan untuk menambah sekaligus mengedit budget perbulan
+    Call<PengeluaranDAO> addPengeluaran(
             @Field("email") String email,
             @Field("keterangan") String keterangan,
             @Field("nominal") int nominal,
-            @Field("tanggal") String tanggal
-    );
-
-    @GET("view-hari.php")
-    Call<List<PengeluaranDAO>> getPengeluaranHari(
-            @Query("email") String email
-    );
-
-    @POST("edit-pengeluaranHarian.php")
-    @FormUrlEncoded
-    Call<PengeluaranDAO> editPengeluaran(
-            @Field("email") String email,
-            @Field("old_ket") String old_ket, //didapat dari keterangan sebelum diedit (bundle)
-            @Field("old_nominal") int old_nominal, //didapat dari nominal sebelum diedit (bundle)
-            @Field("tanggal") String tanggal,
-            @Field("new_ket") String new_ket, //didapat setelah user menginputkan/mengedit keterangan
-            @Field("new_nominal") int new_nominal //didapat setelah user menginputkan/mengedit nominal
-    );
-
-    @POST("delete-pengeluaranHarian.php")
-    @FormUrlEncoded
-    Call<PengeluaranDAO> deletePengeluaran(
-            @Field("email") String email,
-            @Field("keterangan") String keterangan,
-            @Field("nominal") String nominal,
             @Field("tanggal") String tanggal
     );
 }
