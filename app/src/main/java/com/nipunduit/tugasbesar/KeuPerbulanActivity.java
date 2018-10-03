@@ -1,17 +1,19 @@
 package com.nipunduit.tugasbesar;
 
-import android.os.Bundle;
-import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 
 public class KeuPerbulanActivity extends AppCompatActivity {
-    private Bundle nBundle;
+
     private String nEmail;
 
+    private Bundle nBundle;
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView((int) C0376R.layout.activity_keu_perbulan);
-        this.nBundle = getIntent().getBundleExtra("login");
-        this.nEmail = this.nBundle.getString(NotificationCompat.CATEGORY_EMAIL);
+        setContentView(R.layout.activity_keu_perbulan);
+
+        nBundle=getIntent().getBundleExtra("login");
+        nEmail= nBundle.getString("email");
     }
 }

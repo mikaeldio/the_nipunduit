@@ -1,6 +1,7 @@
 package com.nipunduit.tugasbesar;
 
 import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -9,35 +10,55 @@ import retrofit2.http.POST;
 import retrofit2.http.Query;
 
 public interface ApiClient {
+    //CRUD untuk user
+    @POST("register.php")
     @FormUrlEncoded
-    @POST("add-budget.php")
-    Call<InfoKeuanganDAO> addBudget(@Field("email") String str, @Field("budget_bulanan") int i, @Field("target_tabungan") int i2, @Field("frekuensi") int i3);
+    Call<UserDAO> registerUser(
+            @Field("name") String nama,
+            @Field("email") String email,
+            @Field("phone") String phone,
+            @Field("password") String password
+    );
 
+    @POST("login.php")
     @FormUrlEncoded
-    @POST("add-pengeluaran.php")
-    Call<PengeluaranDAO> addPengeluaran(@Field("email") String str, @Field("keterangan") String str2, @Field("nominal") int i, @Field("tanggal") String str3);
-
-    @FormUrlEncoded
-    @POST("edit-profil.php")
-    Call<UserDAO> editUser(@Field("name") String str, @Field("email") String str2, @Field("phone") String str3, @Field("password") String str4);
-
-    @GET("view-home.php")
-    Call<InfoKeuanganDAO> getInfoKeuangan(@Query("email") String str);
-
-    @GET("view-bulan.php")
-    Call<List<PengeluaranBulananDAO>> getPengeluaranBulan(@Query("email") String str);
-
-    @GET("view-hari.php")
-    Call<List<PengeluaranDAO>> getPengeluaranHari(@Query("email") String str);
+    Call<UserDAO> loginUser(
+            @Field("email") String email,
+            @Field("password") String password
+    );
 
     @GET("view-profil.php")
-    Call<UserDAO> getProfil(@Query("email") String str);
+    Call<UserDAO> getProfil(@Query("email") String email);
 
-    @FormUrlEncoded
-    @POST("login.php")
-    Call<UserDAO> loginUser(@Field("email") String str, @Field("password") String str2);
+    @GET("view-hari.php")
+    Call<PengeluaranDAO.Value> getPengeluaranHari(@Query("email") String email);
 
+    @POST("edit-profil.php")
     @FormUrlEncoded
-    @POST("register.php")
-    Call<UserDAO> registerUser(@Field("name") String str, @Field("email") String str2, @Field("phone") String str3, @Field("password") String str4);
+    Call<UserDAO> editUser(
+            @Field("name") String nama,
+            @Field("email") String email,
+            @Field("phone") String phone,
+            @Field("password") String password
+    );
+
+    //CRUD untuk info budget
+    @POST("add-budget.php")
+    @FormUrlEncoded
+    Call<InfoKeuanganDAO> addBudget(
+            @Field("email") String email,
+            @Field("budget_bulanan") int budget_bulanan,
+            @Field("target_tabungan") int target_tabungan,
+            @Field("frekuensi") int frekuensi
+    );
+
+    //CRUD untuk tambah pengeluaran
+    @POST("add-pengeluaran.php")
+    @FormUrlEncoded
+    Call<PengeluaranDAO> addPengeluaran(
+            @Field("email") String email,
+            @Field("keterangan") String keterangan,
+            @Field("nominal") int nominal,
+            @Field("tanggal") String tanggal
+    );
 }

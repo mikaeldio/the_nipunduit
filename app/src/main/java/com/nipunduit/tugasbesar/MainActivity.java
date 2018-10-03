@@ -2,90 +2,95 @@ package com.nipunduit.tugasbesar;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit.Builder;
+import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+//import at.rufuszhu.ui.PlayButtonAnimation;
+
 public class MainActivity extends AppCompatActivity {
-    private EditText mEmail;
+//test lupuz;
+// PlayButtonAnimation btn;
     private Button mLogin;
-    private EditText mPassword;
     private Button mRegister;
+    private EditText mEmail;
+    private EditText mPassword;
 
-    /* renamed from: com.nipunduit.tugasbesar.MainActivity$1 */
-    class C03741 implements OnClickListener {
-        C03741() {
-        }
-
-        public void onClick(View v) {
-            MainActivity.this.startActivity(new Intent(MainActivity.this, RegisterActivity.class));
-        }
-    }
-
-    /* renamed from: com.nipunduit.tugasbesar.MainActivity$2 */
-    class C03752 implements OnClickListener {
-        C03752() {
-        }
-
-        public void onClick(View v) {
-            MainActivity.this.onClickLogin();
-        }
-    }
-
-    /* renamed from: com.nipunduit.tugasbesar.MainActivity$3 */
-    class C05433 implements Callback<UserDAO> {
-        C05433() {
-        }
-
-        public void onResponse(Call<UserDAO> call, Response<UserDAO> response) {
-            Toast.makeText(MainActivity.this, "Login  berhasil", 0).show();
-            MainActivity.this.startIntent();
-        }
-
-        public void onFailure(Call<UserDAO> call, Throwable t) {
-            Toast.makeText(MainActivity.this, "Terjadi kesalahan saat login", 0).show();
-        }
-    }
-
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView((int) C0376R.layout.activity_main);
+        setContentView(R.layout.activity_main);
         setAtribut();
-        this.mRegister.setOnClickListener(new C03741());
-        this.mLogin.setOnClickListener(new C03752());
+
+        mRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, RegisterActivity.class);
+                startActivity(intent);
+            }
+        });
+        mLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onClickLogin();
+            }
+        });
+
+        //btn = findViewById(R.id.playButtonAnimation);
+        //btn.setOnClickListener( new View.OnClickListener(){
+//           public void onClick(View v){
+   //            Toast.makeText(MainActivity.this, "Play Button Animation Clicked",Toast.LENGTH_SHORT).show();
+   //        }
+    //    });
     }
 
     private void setAtribut() {
-        this.mEmail = (EditText) findViewById(C0376R.id.mEmail);
-        this.mPassword = (EditText) findViewById(C0376R.id.mPassword);
-        this.mLogin = (Button) findViewById(C0376R.id.mLogin_login);
-        this.mRegister = (Button) findViewById(C0376R.id.mDone);
+        mEmail = findViewById(R.id.mEmail);
+        mPassword = findViewById(R.id.mPassword);
+        mLogin = findViewById(R.id.mLogin_login);
+        mRegister = findViewById(R.id.mDone);
     }
 
-    public void startIntent() {
-        Intent intent = new Intent(this, HomeActivity.class);
+    public void startIntent(){
+        Intent intent = new Intent(MainActivity.this, HomeActivity.class);
         Bundle mBundle = new Bundle();
-        mBundle.putString(NotificationCompat.CATEGORY_EMAIL, this.mEmail.getText().toString());
-        intent.putExtra("login", mBundle);
+        mBundle.putString("email",(mEmail.getText().toString()));
+        mBundle.putString("password",mPassword.getText().toString());
+        intent.putExtra("login",mBundle);
         startActivity(intent);
     }
 
-    public void onClickLogin() {
-        if (!this.mEmail.getText().toString().isEmpty()) {
-            if (!this.mPassword.getText().toString().isEmpty()) {
-                ((ApiClient) new Builder().baseUrl("https://nipunduit.000webhostapp.com/api/").addConverterFactory(GsonConverterFactory.create()).build().create(ApiClient.class)).loginUser(this.mEmail.getText().toString(), this.mPassword.getText().toString()).enqueue(new C05433());
-                return;
-            }
+    public void onClickLogin(){
+        if(mEmail.getText().toString().isEmpty() || mPassword.getText().toString().isEmpty()){
+            Toast.makeText(this, "Email atau Password tidak boleh ada yang kosong", Toast.LENGTH_SHORT).show();
         }
-        Toast.makeText(this, "Email atau Password tidak boleh ada yang kosong", 0).show();
+        else{
+            Retrofit.Builder builder = new Retrofit.Builder()
+                    .baseUrl("https://nipunduit.000webhostapp.com/api/")
+                    .addConverterFactory(GsonConverterFactory.create());
+            Retrofit retrofit=builder.build();
+            ApiClient apiClient=retrofit.create(ApiClient.class);
+            Call<UserDAO> userDAOCall=apiClient.loginUser(mEmail.getText().toString(), mPassword.getText().toString());
+            userDAOCall.enqueue(new Callback<UserDAO>() {
+                @Override
+                public void onResponse(Call<UserDAO> call, Response<UserDAO> response) {
+                    Toast.makeText(MainActivity.this, "Login  berhasil", Toast.LENGTH_SHORT).show();
+                    startIntent();
+                }
+
+                @Override
+                public void onFailure(Call<UserDAO> call, Throwable t) {
+                    Toast.makeText(MainActivity.this, "Terjadi kesalahan saat login", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
     }
 }

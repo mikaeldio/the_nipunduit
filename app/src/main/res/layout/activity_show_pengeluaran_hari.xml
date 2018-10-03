@@ -1,8 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:background="@color/colorPrimary" android:layout_width="match_parent" android:layout_height="match_parent">
-    <android.support.v7.widget.RecyclerView android:id="@+id/recycler_view_hari" android:scrollbars="vertical" android:layout_width="match_parent" android:layout_height="431dp" android:layout_marginTop="36dp" android:layout_alignParentTop="true" android:layout_alignParentStart="true"/>
-    <TextView android:id="@+id/textView10" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Pengeluaran Harian" android:layout_alignParentTop="true" android:layout_centerHorizontal="true"/>
-    <TextView android:id="@+id/textView11" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="33dp" android:text="Total Pengeluaran: " android:layout_alignParentBottom="true" android:layout_marginStart="92dp" android:layout_alignParentStart="true"/>
-    <TextView android:id="@+id/mTotal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="-" android:layout_alignTop="@+id/textView11" android:layout_marginEnd="94dp" android:layout_alignParentEnd="true"/>
-    <TextView android:id="@+id/mDate" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="-" android:layout_alignParentTop="true" android:layout_marginEnd="22dp" android:layout_alignParentEnd="true"/>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context=".ShowPengeluaranHariActivity">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view_hari"
+        android:layout_width="match_parent"
+        android:layout_height="431dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="36dp"
+        android:scrollbars="vertical" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="Pengeluaran Harian" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="33dp"
+        android:layout_marginStart="92dp"
+        android:text="Total Pengeluaran: " />
+
+    <TextView
+        android:id="@+id/mTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/textView11"
+        android:layout_marginEnd="94dp"
+        android:text="-" />
+
+    <TextView
+        android:id="@+id/mDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="22dp"
+        android:text="-" />
 </RelativeLayout>

@@ -1,80 +1,73 @@
 package com.nipunduit.tugasbesar;
 
 import android.os.Bundle;
-import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.RecyclerView.LayoutManager;
-import android.util.Log;
 import android.widget.TextView;
-import android.widget.Toast;
-import com.google.gson.GsonBuilder;
+
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit.Builder;
-import retrofit2.converter.gson.GsonConverterFactory;
+import java.util.Locale;
+
+import static java.time.format.DateTimeFormatter.*;
 
 public class ShowPengeluaranBulanActivity extends AppCompatActivity {
-    private LayoutManager layoutManager;
-    private TextView mDate;
-    private List<PengeluaranBulananDAO> mListPengeluaranBulan = new ArrayList();
-    private TextView mTotal;
-    private Bundle nBundle;
-    private String nEmail;
-    private RecycleAdapterBulan recycleAdapterBulan;
+    private List<PengeluaranBulananDAO> mListPengeluaranBulan = new ArrayList<>();
     private RecyclerView recyclerView;
-    private Integer totalPrice = Integer.valueOf(0);
+    private RecycleAdapterBulan RecycleAdapterBulan;
+    private RecyclerView.LayoutManager layoutManager;
+    private TextView mTotal,mDate;
+    private Integer totalPrice = 0;
+    private String nEmail;
 
-    /* renamed from: com.nipunduit.tugasbesar.ShowPengeluaranBulanActivity$1 */
-    class C05451 implements Callback<List<PengeluaranBulananDAO>> {
-        C05451() {
-        }
+    private Bundle nBundle;
 
-        public void onResponse(Call<List<PengeluaranBulananDAO>> call, Response<List<PengeluaranBulananDAO>> response) {
-            int i = 0;
-            Toast.makeText(ShowPengeluaranBulanActivity.this, "Done", 0).show();
-            ShowPengeluaranBulanActivity.this.mListPengeluaranBulan = (List) response.body();
-            StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.append("Response = ");
-            stringBuilder.append(ShowPengeluaranBulanActivity.this.mListPengeluaranBulan.toString());
-            Log.d("TAG", stringBuilder.toString());
-            ShowPengeluaranBulanActivity.this.recycleAdapterBulan.setPengeluaranBulanlist(ShowPengeluaranBulanActivity.this.mListPengeluaranBulan);
-            ShowPengeluaranBulanActivity.this.recycleAdapterBulan.notifyDataSetChanged();
-            while (true) {
-                int i2 = i;
-                if (i2 < ShowPengeluaranBulanActivity.this.mListPengeluaranBulan.size()) {
-                    ShowPengeluaranBulanActivity.this.totalPrice = Integer.valueOf(ShowPengeluaranBulanActivity.this.totalPrice.intValue() + ((PengeluaranBulananDAO) ShowPengeluaranBulanActivity.this.mListPengeluaranBulan.get(i2)).getJumlah().intValue());
-                    i = i2 + 1;
-                } else {
-                    ShowPengeluaranBulanActivity.this.mTotal.setText(ShowPengeluaranBulanActivity.this.totalPrice.toString());
-                    return;
-                }
-            }
-        }
+    @Override
+    protected void onCreate(Bundle savedInstanceState){
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_show_pengeluaran_bulan);
 
-        public void onFailure(Call<List<PengeluaranBulananDAO>> call, Throwable t) {
-            Toast.makeText(ShowPengeluaranBulanActivity.this, "Network Connection Error", 0).show();
-            Toast.makeText(ShowPengeluaranBulanActivity.this, t.toString(), 0).show();
-            t.printStackTrace();
+        nBundle=getIntent().getBundleExtra("login");
+        nEmail= nBundle.getString("email");
+
+        //===> Month taker
+        Calendar c = Calendar.getInstance();
+        String[]monthName={"January","February","March", "April", "May", "June", "July",
+                "August", "September", "October", "November",
+                "December"};
+        String month=monthName[c.get(Calendar.MONTH)];
+        //<===
+
+        mTotal=(TextView) findViewById(R.id.mTotal);
+        recyclerView = findViewById(R.id.recycler_view_bulan);
+        mDate =(TextView) findViewById(R.id.mDate);
+        RecycleAdapterBulan = new RecycleAdapterBulan(mListPengeluaranBulan);
+        layoutManager = new LinearLayoutManager(getApplicationContext());
+        recyclerView.setLayoutManager(layoutManager);
+        setRecycleView();
+        recyclerView.setAdapter(RecycleAdapterBulan);
+
+        for (int i = 0; i < mListPengeluaranBulan.size(); i++) {
+          totalPrice += mListPengeluaranBulan.get(i).getJumlah();
         }
+        String t = totalPrice.toString();
+        mTotal.setText(t);
+        mDate.setText(month);
+
     }
 
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView((int) C0376R.layout.activity_show_pengeluaran_bulan);
-        this.nBundle = getIntent().getBundleExtra("login");
-        this.nEmail = this.nBundle.getString(NotificationCompat.CATEGORY_EMAIL);
-        String month = new String[]{"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"}[Calendar.getInstance().get(2)];
-        this.mListPengeluaranBulan = new ArrayList();
-        this.recyclerView = (RecyclerView) findViewById(C0376R.id.recycler_view_bulan);
-        this.recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        this.recycleAdapterBulan = new RecycleAdapterBulan(getApplicationContext(), this.mListPengeluaranBulan);
-        this.recyclerView.setAdapter(this.recycleAdapterBulan);
-        ((ApiClient) new Builder().baseUrl("https://nipunduit.000webhostapp.com/api/").addConverterFactory(GsonConverterFactory.create(new GsonBuilder().setLenient().create())).build().create(ApiClient.class)).getPengeluaranBulan(this.nEmail).enqueue(new C05451());
+    private void setRecycleView(){
+        List<PengeluaranBulananDAO> mList;
+
+        mList= PengeluaranBulananDAO.listAll(PengeluaranBulananDAO.class);
+
+        mListPengeluaranBulan.addAll(mList);
+        RecycleAdapterBulan.notifyDataSetChanged();
     }
 }
