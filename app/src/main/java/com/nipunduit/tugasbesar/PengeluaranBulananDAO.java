@@ -1,18 +1,18 @@
 package com.nipunduit.tugasbesar;
 
-import java.util.Date;
+import com.google.gson.annotations.SerializedName;
 import com.orm.SugarRecord;
 
-public class PengeluaranBulananDAO extends SugarRecord{
-    String Tanggal;
+public class PengeluaranBulananDAO extends SugarRecord {
+    @SerializedName("totalPengeluaran_perhari")
     Integer Jumlah;
-
-    //cek response jeson
+    @SerializedName("tanggal")
+    String Tanggal;
     String error;
     String error_msg;
 
     public String getError() {
-        return error;
+        return this.error;
     }
 
     public void setError(String error) {
@@ -20,7 +20,7 @@ public class PengeluaranBulananDAO extends SugarRecord{
     }
 
     public String getError_msg() {
-        return error_msg;
+        return this.error_msg;
     }
 
     public void setError_msg(String error_msg) {
@@ -28,28 +28,34 @@ public class PengeluaranBulananDAO extends SugarRecord{
     }
 
     public String getTanggal() {
-        return Tanggal;
+        return this.Tanggal;
     }
 
     public void setTanggal(String tanggal) {
-        Tanggal = tanggal;
+        this.Tanggal = tanggal;
     }
 
     public Integer getJumlah() {
-        return Jumlah;
+        return this.Jumlah;
     }
 
     public void setJumlah(Integer jumlah) {
-        Jumlah = jumlah;
+        this.Jumlah = jumlah;
     }
 
     public PengeluaranBulananDAO(String tanggal, Integer jumlah) {
-
-        Tanggal = tanggal;
-        Jumlah = jumlah;
+        this.Tanggal = tanggal;
+        this.Jumlah = jumlah;
     }
 
-    public PengeluaranBulananDAO() {
-
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("PengeluaranDAO{Keterangan='");
+        stringBuilder.append(this.Tanggal);
+        stringBuilder.append('\'');
+        stringBuilder.append(", Jumlah=");
+        stringBuilder.append(this.Jumlah);
+        stringBuilder.append('}');
+        return stringBuilder.toString();
     }
 }

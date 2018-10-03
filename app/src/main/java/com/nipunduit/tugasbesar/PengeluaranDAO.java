@@ -1,21 +1,28 @@
 package com.nipunduit.tugasbesar;
 
+import com.google.gson.annotations.SerializedName;
 import com.orm.SugarRecord;
-
 import java.util.List;
 
 public class PengeluaranDAO extends SugarRecord {
-
-    String Keterangan;
+    @SerializedName("nominal")
     Integer Jumlah;
+    @SerializedName("keterangan")
+    String Keterangan;
     String email;
-
-    //cek response jeson
     String error;
     String error_msg;
 
+    public class Value {
+        List<PengeluaranDAO> result;
+
+        public List<PengeluaranDAO> getResult() {
+            return this.result;
+        }
+    }
+
     public String getError() {
-        return error;
+        return this.error;
     }
 
     public void setError(String error) {
@@ -23,46 +30,50 @@ public class PengeluaranDAO extends SugarRecord {
     }
 
     public String getError_msg() {
-        return error_msg;
+        return this.error_msg;
     }
 
     public void setError_msg(String error_msg) {
         this.error_msg = error_msg;
     }
 
-    public PengeluaranDAO(){}
-
     public String getKeterangan() {
-        return Keterangan;
+        return this.Keterangan;
     }
 
     public void setKeterangan(String keterangan) {
-        Keterangan = keterangan;
+        this.Keterangan = keterangan;
     }
 
     public String getEmail() {
-        return email;
+        return this.email;
     }
 
     public void setEmail(String email) {
         this.email = email;
     }
 
-    public PengeluaranDAO(String Keterangan,
-                          Integer Jumlah){
-        this.Keterangan=Keterangan;
-        this.Jumlah=Jumlah;
+    public PengeluaranDAO(String Keterangan, Integer Jumlah) {
+        this.Keterangan = Keterangan;
+        this.Jumlah = Jumlah;
     }
 
     public Integer getJumlah() {
-        return Jumlah;
+        return this.Jumlah;
     }
 
-    public class Value{
-        List<PengeluaranDAO> result;
-        public List<PengeluaranDAO> getResult(){
-            return result;
-        }
+    public String getJumlahS() {
+        return this.Jumlah.toString();
     }
 
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("PengeluaranDAO{Keterangan='");
+        stringBuilder.append(this.Keterangan);
+        stringBuilder.append('\'');
+        stringBuilder.append(", Jumlah=");
+        stringBuilder.append(this.Jumlah);
+        stringBuilder.append('}');
+        return stringBuilder.toString();
+    }
 }

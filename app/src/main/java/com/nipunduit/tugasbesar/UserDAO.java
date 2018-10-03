@@ -1,44 +1,50 @@
 package com.nipunduit.tugasbesar;
 
 public class UserDAO {
-    String name;
     String email;
-    String phone;
-    String password;
-
-    //cek response jeson
     String error;
     String error_msg;
+    String name;
+    String password;
+    String phone;
 
-    public UserDAO(String name, String email, String phone, String password){
-        this.name=name;
-        this.email=email;
-        this.phone=phone;
-        this.password=password;
+    public class val {
+        UserDAO result;
+
+        public UserDAO getResult() {
+            return this.result;
+        }
+    }
+
+    public UserDAO(String name, String email, String phone, String password) {
+        this.name = name;
+        this.email = email;
+        this.phone = phone;
+        this.password = password;
     }
 
     public String getNama() {
-        return name;
+        return this.name;
     }
 
     public String getEmail() {
-        return email;
+        return this.email;
     }
 
     public String getTelp() {
-        return phone;
+        return this.phone;
     }
 
     public String getPassword() {
-        return password;
+        return this.password;
     }
 
     public String getError() {
-        return error;
+        return this.error;
     }
 
     public String getError_msg() {
-        return error_msg;
+        return this.error_msg;
     }
 
     public void setNama(String nama) {
@@ -64,17 +70,4 @@ public class UserDAO {
     public void setError(String error) {
         this.error = error;
     }
-
-    public class val{
-        UserDAO result;
-
-        public UserDAO getResult(){
-            return result;
-        }
-    }
 }
-
-
-
-
-

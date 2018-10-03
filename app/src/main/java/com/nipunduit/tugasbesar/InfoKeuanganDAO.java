@@ -1,14 +1,20 @@
 package com.nipunduit.tugasbesar;
 
-import android.content.Context;
-
 public class InfoKeuanganDAO {
     int budget_bulanan;
-    int frekuensi;
-    int target_tabungan;
     String email;
     String error;
     String error_msg;
+    int frekuensi;
+    int target_tabungan;
+
+    public class val {
+        InfoKeuangan result;
+
+        public InfoKeuangan getResult() {
+            return this.result;
+        }
+    }
 
     public InfoKeuanganDAO(int budget, int frekuensi, int tabungan) {
         this.budget_bulanan = budget;
@@ -17,7 +23,7 @@ public class InfoKeuanganDAO {
     }
 
     public int getBudget() {
-        return budget_bulanan;
+        return this.budget_bulanan;
     }
 
     public void setBudget(int budget) {
@@ -25,7 +31,7 @@ public class InfoKeuanganDAO {
     }
 
     public int getFrekuensi() {
-        return frekuensi;
+        return this.frekuensi;
     }
 
     public void setFrekuensi(int frekuensi) {
@@ -33,7 +39,7 @@ public class InfoKeuanganDAO {
     }
 
     public int getTabungan() {
-        return target_tabungan;
+        return this.target_tabungan;
     }
 
     public void setTabungan(int tabungan) {
@@ -41,7 +47,7 @@ public class InfoKeuanganDAO {
     }
 
     public String getError() {
-        return error;
+        return this.error;
     }
 
     public void setError(String error) {
@@ -49,18 +55,10 @@ public class InfoKeuanganDAO {
     }
 
     public String getError_msg() {
-        return error_msg;
+        return this.error_msg;
     }
 
     public void setError_msg(String error_msg) {
         this.error_msg = error_msg;
-    }
-
-    public class val{
-        InfoKeuangan result;
-
-        public InfoKeuangan getResult(){
-            return result;
-        }
     }
 }
